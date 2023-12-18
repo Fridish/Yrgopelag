@@ -17,6 +17,11 @@ body {
   width: 100vw;
   height: 200px;
 }
+.img {
+  width: 200px;
+  height: auto;
+}
+
 .indexHouseView img {
   width: 300px;
   height: 300px;
@@ -62,4 +67,11 @@ td:hover {
 .calendar {
   border-style: solid;
   border-width: 1px;
+}
+
+.extras {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: 200px;
 }

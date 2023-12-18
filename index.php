@@ -3,7 +3,8 @@
 declare(strict_types=1);
 
 require __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/pageview/header.php'; ?>
+require __DIR__ . '/pageview/header.php';
+require __DIR__ . '/hotelFunctions.php'; ?>
 
 <body>
     <div class="heroWrapper">
@@ -17,7 +18,6 @@ require __DIR__ . '/pageview/header.php'; ?>
         </a>
         <a href="/pageview/luxuryHouse.php">
             <img src="Media/House3.png" alt="">
-        </a>
         </a>
     </div>
     <?php

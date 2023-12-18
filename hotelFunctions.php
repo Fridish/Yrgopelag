@@ -4,13 +4,13 @@
 Here's something to start your career as a hotel manager.
 
 One function to connect to the database you want (it will return a PDO object which you then can use.)
-    For instance: $db = connect('hotel.db');
+    For instance: $db = connect('yrgopelag.db');
                   $db->prepare("SELECT * FROM bookings");
                   
 one function to create a guid,
 and one function to control if a guid is valid.
 */
-
+$dbName = "Yrgopelag.db";
 function connect(string $dbName): object
 {
     $dbPath = __DIR__ . '/' . $dbName;
@@ -18,7 +18,7 @@ function connect(string $dbName): object
 
     // Open the database file and catch the exception if it fails.
     try {
-        $db = new PDO($db);
+        $db = new PDO($db, null, null, array(PDO::ATTR_PERSISTENT => true));
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
@@ -26,6 +26,17 @@ function connect(string $dbName): object
         throw $e;
     }
     return $db;
+}
+if (isset($_POST['name'])) {
+    $db = connect($dbName);
+    $username = $_POST['name'];
+    $statement = $db->prepare("INSERT INTO bookings (full_name) VALUES (:username)");
+    $statement->bindValue(':username', $username);
+    $statement->execute();
+    $statement = $db->prepare("SELECT * FROM bookings");
+    $statement->execute();
+    $result = $statement->fetchAll();
+    var_dump($result);
 }
 
 function guidv4(string $data = null): string
