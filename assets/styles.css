@@ -31,6 +31,9 @@ body {
   text-align: center;
   background-color: rgb(169, 188, 182);
 }
+.booked {
+  background-color: red;
+}
 .calendarContainer {
   display: flex;
   justify-content: center;
