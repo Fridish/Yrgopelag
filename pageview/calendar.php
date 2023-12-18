@@ -1,7 +1,5 @@
 <?php
 $calendar = new Calendar();
-$calendar->setYear(2024);
-$calendar->setMonth(1);
 $calendar->create();
 ?>
 <div class="calendarContainer">
@@ -14,7 +12,7 @@ $calendar->create();
                 <?php foreach ($calendar->getWeek() as $week) : ?>
                     <tr>
                         <?php foreach ($week as $day) : ?>
-                            <td id="<?php echo $day; ?>">
+                            <td id="<?php echo $day; ?>" data="<?php echo $day; ?> ">
                                 <?php echo $day; ?>
                             </td>
                         <?php endforeach; ?>

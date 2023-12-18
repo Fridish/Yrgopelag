@@ -1,24 +1,16 @@
 <?php
 class Calendar extends DateTime
 {
-    protected $year;
-    protected $month;
+    protected $year = 2024;
+    protected $month = 1;
     protected $week = [];
     public function getYear()
     {
         return $this->year;
     }
-    public function setYear($year)
-    {
-        $this->year = $year;
-    }
     public function getMonth()
     {
         return $this->month;
-    }
-    public function setMonth($month)
-    {
-        $this->month = $month;
     }
     public function getWeek()
     {
@@ -30,7 +22,7 @@ class Calendar extends DateTime
         $monthDays = $date->format('t');
         $startDay = $date->format('N');
 
-        $days = array_fill(0, $startDay - 1, "");
+        $days = array_fill(0, $startDay - 1, ""); //-1 så veckan börjar på en måndag
 
         for ($i = 1; $i <= $monthDays; $i++) {
             $days[] = $i;
