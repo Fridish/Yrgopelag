@@ -32,7 +32,7 @@ body {
   background-color: rgb(169, 188, 182);
 }
 .booked {
-  background-color: red;
+  background-color: rgb(236, 118, 118);
 }
 .calendarContainer {
   display: flex;
