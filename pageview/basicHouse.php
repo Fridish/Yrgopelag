@@ -19,6 +19,7 @@ require __DIR__ . '/header.php'; ?>
         <h1>10$/night</h1>
         <div>
             <?php
+            $roomNumber = 1;
             require __DIR__ . '/calendarFunctions.php';
             require __DIR__ . '/calendar.php';
             ?>
