@@ -52,8 +52,9 @@ require __DIR__ . '/header.php'; ?>
                 </div>
                 <input type="text" name="name" id="name" placeholder="Enter your full name here">
                 <input type="text" name="uuid" placeholder="Enter your transfer code here">
+                <input type="hidden" name="roomNumber" id="roomNumber" value="1">
 
-                <button type="submit"> submit</button>
+                <button type="submit" name="submit"> submit</button>
     </form>
     <?php
     require __DIR__ . '/footer.php';

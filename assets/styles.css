@@ -8,7 +8,7 @@ body {
   margin: 0;
   justify-content: center;
   width: 100vw;
-  height: auto;
+  height: fit-content;
 }
 .indexHouseView {
   display: flex;

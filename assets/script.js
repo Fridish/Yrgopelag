@@ -48,19 +48,25 @@ function addTotalNights() {
   let arrivalDate = document.getElementById('arrival').value;
   let departureDate = document.getElementById('departure').value;
   let arrivalDay = arrivalDate.split('-')[2];
-  arrivalDay = arrivalDay.split(0)[1];
+  if (arrivalDay < 10) {
+    arrivalDay = arrivalDay.split(0)[1];
+  }
   let departureDay = departureDate.split('-')[2];
-  departureDay = departureDay.split(0)[1];
-
-  if (arrivalDay >= departureDay) {
+  if (departureDay < 10) {
+    departureDay = departureDay.split(0)[1];
+  }
+  console.log(arrivalDay);
+  console.log(departureDay);
+  if (arrivalDate >= departureDate) {
     alert('Dagen för hemfärd måste vara efter ankomstdagen');
   } else {
     let nights = departureDay - arrivalDay;
     console.log(nights);
     total = 0;
     total += nights * 10;
-    updateCost = document.getElementById('total').innerHTML = total;
-    document.getElementById('orderTotal').innerHTML = updateCost;
+    document.getElementById('total').innerHTML = total;
+    updateCost = total;
+    document.getElementById('orderTotal').value = updateCost;
   }
 }
 //choose departure date
