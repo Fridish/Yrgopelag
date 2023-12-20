@@ -29,28 +29,36 @@ body {
 }
 #calendarHeader {
   text-align: center;
-  background-color: rgb(169, 188, 182);
+  /*background-color: rgb(169, 188, 182);*/
 }
 .booked {
-  background-color: rgb(236, 118, 118);
+  background-color: rgb(236, 118, 118) !important;
+}
+.calendarButton {
+  width: 45px;
+  height: 45px;
+  background-color: transparent;
+  border: none;
+  border-radius: 100%;
+  text-align: center;
+}
+.calendarWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: auto;
+  height: auto;
 }
 .calendarContainer {
   display: flex;
   justify-content: center;
-  width: 100%;
-  height: auto;
-}
-.calendarWrapper {
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: auto;
   width: auto;
+  height: auto;
 }
 .calendar {
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: auto;
   color: rgb(0, 0, 0);
 }
 td {
