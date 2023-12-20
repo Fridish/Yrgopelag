@@ -27,17 +27,19 @@ function connect(string $dbName): object
     }
     return $db;
 }
-if (isset($_POST['name'])) {
+if (isset($_POST['name'], $_POST['arrival'], $_POST['departure'], $_POST['uuid'])) {
     $db = connect($dbName);
     $username = $_POST['name'];
+    $arrival = $_POST['arrival'];
+    $departure = $_POST['departure'];
     $statement = $db->prepare("INSERT INTO bookings (full_name) VALUES (:username)");
     $statement->bindValue(':username', $username);
     $statement->execute();
     $statement = $db->prepare("SELECT * FROM bookings");
     $statement->execute();
     $result = $statement->fetchAll();
-    var_dump($result);
 }
+var_dump($_POST['name'], $_POST['arrival'], $_POST['departure'], $_POST['uuid'], $_POST['extras'], $_POST['orderTotal']);
 
 $db = connect('yrgopelag.db');
 $db->prepare("SELECT * FROM bookings");
