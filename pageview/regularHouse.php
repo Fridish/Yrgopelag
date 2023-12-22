@@ -9,7 +9,7 @@ require __DIR__ . '/header.php'; ?>
             <h1>Regular House</h1>
             <p>Regular House is a house that is regular.</p>
         </div>
-        <img src="Media/House2.png" alt="the basic house">
+        <img class="img" src="Media/House2.png" alt="the basic house">
     </div>
     <div class="imgSlideshow">
         <img src="" alt="">
