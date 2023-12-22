@@ -6,15 +6,24 @@ require __DIR__ . '/header.php'; ?>
     <img src="" alt="">
     <div class="houseInformationContainer">
         <div class="textWrap">
-            <h1>Basic House</h1>
-            <p>Basic House is a house that is basic.</p>
+            <h1>luxury House</h1>
+            <p>luxury House is a house that is luxurious.</p>
         </div>
-        <img src="Media/house1.png" alt="the basic house">
+        <img src="/Media/House3.png" alt="the luxurious house">
     </div>
-    <?php
-    require __DIR__ . '/calendarFunctions.php';
-    require __DIR__ . '/calendar.php';
-    ?>
+    <div class="imgSlideshow">
+        <img src="" alt="">
+        <img src="" alt="">
+    </div>
+    <form action="" method="post">
+        <h1>$20/night</h1>
+        <div>
+            <?php
+            $roomNumber = 3;
+            require __DIR__ . '/calendarFunctions.php';
+            require __DIR__ . '/calendar.php';
+            require __DIR__ . '/formFunctions.php';
+            ?>
 
-    <?php
-    require __DIR__ . '/footer.php';
+            <?php
+            require __DIR__ . '/footer.php';
