@@ -35,7 +35,7 @@ $calendar->create();
         </table>
     </div>
     <p> Från: <input type="date" id="arrival" name="arrival" min="2024-01-01" max="2024-01-31"></input>
-    <p> Från: <input id="departure" name="departure" type="date" min="2024-01-01" max="2024-01-31"></input>
+    <p> Till: <input id="departure" name="departure" type="date" min="2024-01-01" max="2024-01-31"></input>
 </div>
 
 <!-- <span name="departure" id="departureDate">2024-01-01</span>
