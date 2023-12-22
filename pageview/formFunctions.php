@@ -21,7 +21,7 @@
             <input type="checkbox" id="guide" name="extras" value=8>
             <span class="checkmark"></span>
         </label>
-        Order total:$ <input type="hidden" id="orderTotal" name="orderTotal"> <span id="total" value="">0</span>
+        <p>Order total: $<input type="hidden" id="orderTotal" name="orderTotal"> <span id="total" value="">0</span></p>
     </div>
     <input type="text" name="name" id="name" placeholder="Enter your full name here">
     <input type="text" name="uuid" placeholder="Enter your transfer code here">
