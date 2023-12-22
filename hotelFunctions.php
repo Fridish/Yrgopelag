@@ -20,6 +20,49 @@ function connect(string $dbName): object
     return $db;
 }
 
+//checks if all fields are filled out, that the transfer code is valid, the dates aren't booked, deposit money and adds a booking to the database.
+if (isset($_POST["submit"])) {
+    //first, check if all fields are filled out
+    if (isset($_POST['name'], $_POST['arrival'], $_POST['departure'], $_POST['uuid'], $_POST['orderTotal'], $_POST['roomNumber']) && !empty($_POST['name']) && !empty($_POST['arrival']) && !empty($_POST['departure']) && !empty($_POST['uuid']) && !empty($_POST['orderTotal']) && !empty($_POST['roomNumber'])) {
+        //then check if the dates are booked
+        $datesAvailable = checkDates();
+        if ($datesAvailable === true) {
+            $validUuid = checkUuid();
+            //then check if the uuid is valid
+            if ($validUuid !== false) {
+                //if all fields are filled out and UUID is ok, insert into database
+                bookRoom();
+                //if everything works, deposit the money to my account
+                depositMoney();
+
+                //if everything works, redirect to confirmation page with json of booking (using header?)
+            }
+        }
+    } else {
+        echo "Please fill out all fields";
+    }
+}
+function checkDates()
+{
+    $roomNumber = $_POST['roomNumber'];
+    $dbName = "yrgopelag.db";
+    $arrival = $_POST['arrival'];
+    $departure = $_POST['departure'];
+    $db = connect($dbName);
+    $statement = $db->prepare("SELECT * FROM bookings WHERE (arrival = :arrival OR departure = :departure OR :arrival BETWEEN arrival AND departure OR :departure BETWEEN arrival AND departure) AND room_number = :roomNumber");
+    $statement->bindValue(':arrival', $arrival);
+    $statement->bindValue(':departure', $departure);
+    $statement->bindValue(':roomNumber', $roomNumber);
+    $statement->execute();
+    $bookings = $statement->fetchAll();
+    if (count($bookings) > 0) {
+        print_r('Please choose a date that hasn\'t already been booked');
+        return false;
+    } else {
+        return true;
+    }
+}
+
 //Cheks if the uuid is valid, then it checks if it matches with the API
 function checkUuid()
 {
@@ -39,13 +82,16 @@ function checkUuid()
                     'totalcost' => $totalCost
                 ],
             ]);
-            var_dump((string) $response->getBody()->getContents());
+            $response = $response->getBody()->getContents();
         } catch (GuzzleHttp\Exception\ServerException $e) {
             echo 'Invalid transfercode';
             return false;
         }
     }
 }
+
+
+//deposits the money to my account
 function depositMoney()
 {
     $client = new GuzzleHttp\Client();
@@ -56,59 +102,36 @@ function depositMoney()
                 'transferCode' => $_POST['uuid']
             ],
         ]);
+        $response = $response->getBody()->getContents();
     } catch (GuzzleHttp\Exception\ServerException $e) {
         echo 'Something went wrong. Try again';
         return false;
     }
 }
-//checks if all fields are filled out, and adds a booking to the database.
-if (isset($_POST["submit"])) {
-    if (checkUuid() !== false) { //if all fields are filled out and UUID is ok, insert into database
-        if (isset($_POST['arrival'], $_POST['departure'])) {
-            $arrival = $_POST['arrival'];
-            $departure = $_POST['departure'];
-            $db = connect($dbName);
-            $statement = $db->prepare("SELECT * FROM bookings WHERE (arrival = :arrival OR departure = :departure OR :arrival BETWEEN arrival AND departure OR :departure BETWEEN arrival AND departure) AND room_number = :roomNumber");
-            $statement->bindValue(':arrival', $arrival);
-            $statement->bindValue(':departure', $departure);
-            $statement->bindValue(':roomNumber', $roomNumber);
-            $statement->execute();
-            $bookings = $statement->fetchAll();
-            if (count($bookings) > 0) {
-                print_r('Please choose a date that hasn\'t already been booked');
-            } else {
-                if (isset($_POST['name'], $_POST['arrival'], $_POST['departure'], $_POST['uuid'], $_POST['orderTotal'], $_POST['roomNumber'])) {
-                    echo var_dump($_POST["orderTotal"]);
-                    $db = connect($dbName);
-                    $username = trim(htmlspecialchars($_POST['name']));
-                    $arrival = $_POST['arrival'];
-                    $departure = $_POST['departure'];
-                    $uuid = $_POST['uuid'];
-                    if (isset($_POST['extras'])) {
-                        $extras = $_POST['extras'];
-                    } else {
-                        $extras = 0;
-                    }
-                    $orderTotal = $_POST['orderTotal'];
-                    $roomNumber = $_POST['roomNumber'];
-                    $statement = $db->prepare("INSERT INTO bookings (full_name, arrival, departure, room_number, extras,total_cost) VALUES (:username, :arrival, :departure, :roomNumber, :extras, :orderTotal)");
-                    $statement->bindValue(':username', $username);
-                    $statement->bindValue(':arrival', $arrival);
-                    $statement->bindValue(':departure', $departure);
-                    $statement->bindValue(':roomNumber', $roomNumber);
-                    $statement->bindValue(':extras', $extras);
-                    $statement->bindValue(':orderTotal', $orderTotal);
-                    $statement->execute();
-                    $result = $statement->rowCount();
 
-                    //if everything works, deposit the money to my account
-                    depositMoney();
-                } else {
-                    echo "Please fill out all fields";
-                }
-            }
-        }
+
+function bookRoom()
+{
+    $dbName = "yrgopelag.db";
+    $db = connect($dbName);
+    $username = trim(htmlspecialchars($_POST['name']));
+    $arrival = $_POST['arrival'];
+    $departure = $_POST['departure'];
+    if (isset($_POST['extras'])) {
+        $extras = $_POST['extras'];
+    } else {
+        $extras = 0;
     }
+    $orderTotal = $_POST['orderTotal'];
+    $roomNumber = $_POST['roomNumber'];
+    $statement = $db->prepare("INSERT INTO bookings (full_name, arrival, departure, room_number, extras,total_cost) VALUES (:username, :arrival, :departure, :roomNumber, :extras, :orderTotal)");
+    $statement->bindValue(':username', $username);
+    $statement->bindValue(':arrival', $arrival);
+    $statement->bindValue(':departure', $departure);
+    $statement->bindValue(':roomNumber', $roomNumber);
+    $statement->bindValue(':extras', $extras);
+    $statement->bindValue(':orderTotal', $orderTotal);
+    $statement->execute();
 }
 function guidv4(string $data = null): string
 {

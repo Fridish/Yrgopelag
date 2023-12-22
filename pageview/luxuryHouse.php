@@ -9,7 +9,7 @@ require __DIR__ . '/header.php'; ?>
             <h1>luxury House</h1>
             <p>luxury House is a house that is luxurious.</p>
         </div>
-        <img src="/Media/House3.png" alt="the luxurious house">
+        <img class="img" src="/Media/House3.png" alt="the luxurious house">
     </div>
     <div class="imgSlideshow">
         <img src="" alt="">
