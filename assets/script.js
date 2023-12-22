@@ -65,8 +65,9 @@ function addTotalNights() {
     total = 0;
     total += nights * 10;
     document.getElementById('total').innerHTML = total;
-    updateCost = total;
+    updateCost =  parseInt(total);
     document.getElementById('orderTotal').value = updateCost;
+
   }
 }
 //choose departure date

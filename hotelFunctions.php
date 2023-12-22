@@ -9,7 +9,11 @@ One function to connect to the database you want (it will return a PDO object wh
                   
 one function to create a guid,
 and one function to control if a guid is valid.
+
 */
+
+declare(strict_types=1);
+require __DIR__ . '/vendor/autoload.php';
 $dbName = "Yrgopelag.db";
 function connect(string $dbName): object
 {
@@ -29,33 +33,31 @@ function connect(string $dbName): object
 }
 
 if (isset($_POST["submit"])) {
-    //use guzzle to check transferCode 
-    //if transferCode is valid, insert into database
-    //else echo "invalid transfer code"
-    $client = new GuzzleHttp\Client();
-    $transferCode = $_POST['uuid'];
-    $totalCost = $_POST['orderTotal'];
-    try {
-        $request = $client->request('POST', "https://www.yrgopelag.se/centralbank/transferCode", [
-            "form_params" => [
-                'transferCode' => $transferCode,
-                'totalCost' => $totalCost,
-            ],
-
-        ]);
-        $response = $request->getBody();
-        $response = json_decode($response);
-        $status = $response->statusCode();
-        if ($status != 200) {
-            echo "invalid transfer code";
+    if (isValidUuid($_POST['uuid']) == false) {
+        echo 'please enter a valid transfercode';
+        return false;
+    } else {
+        //use guzzle to check transferCode 
+        //if transferCode is valid, insert into database
+        $client = new GuzzleHttp\Client();
+        $transferCode = $_POST['uuid']; //ex. 3e0a0d8d-28f0-4e47-9dd1-2f335ab65fd8
+        $totalCost = (int) $_POST['orderTotal']; // ex. 10
+        try {
+            $response = $client->request('POST', "https://www.yrgopelag.se/centralbank/transferCode", [
+                'form_params' => [
+                    'transferCode' => $transferCode,
+                    'totalcost' => $totalCost
+                ],
+            ]);
+            var_dump((string) $response->getBody()->getContents());
+        } catch (GuzzleHttp\Exception\ServerException $e) {
+            echo "Failed to send request: " . $e->getMessage();
+            echo "Response body: " . $e->getResponse()->getBody();
+            var_dump($_POST['uuid']);
+            var_dump($_POST['orderTotal']);
+            var_dump($totalCost);
         }
-    } catch (GuzzleHttp\Exception\ServerException $e) {
-        echo "Failed to send request: " . $e->getMessage();
-        echo "Response body: " . $e->getResponse()->getBody();
-        echo var_dump($_POST['uuid']);
-        echo var_dump($_POST['orderTotal']);
     }
-} else {
     //if all fields are filled out and UUID is ok, insert into database
     if (isset($_POST['arrival'], $_Post['departure'])) {
         $arrival = $_POST['arrival'];
@@ -113,10 +115,10 @@ function guidv4(string $data = null): string
     // Output the 36 character UUID.
     return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
 }
-
 function isValidUuid(string $uuid): bool
 {
     if (!is_string($uuid) || (preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/', $uuid) !== 1)) {
+        echo 'please enter a valid transfercode';
         return false;
     }
     return true;
