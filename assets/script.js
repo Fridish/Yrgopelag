@@ -8,11 +8,14 @@ let addArrival = document.getElementById('arrival');
 let addDeparture = document.getElementById('departure');
 
 guide.addEventListener('click', addCost);
-bergsklättring.addEventListener('cick', addCost);
+bergsklättring.addEventListener('click', addCost);
 fiskeutrustning.addEventListener('click', addCost);
 kajak.addEventListener('click', addCost);
 
 addDeparture.addEventListener('change', addTotalNights);
+addArrival.addEventListener('change', addTotalNights);
+let extrasTotal = 0;
+let totalNights = 0;
 /*for (let i = 0; i < addArrival.length; i++) {
 /  addArrival[i].addEventListener('click', addArrivalDate);
 }
@@ -23,9 +26,13 @@ for (let i = 0; i < addDeparture.length; i++) {
 //add cost of extras to the total cost
 function addCost() {
   if (this.checked) {
-    total += Number(this.value);
+    extrasTotal += Number(this.value);
+    total = totalNights + extrasTotal;
+    console.log(total);
   } else {
-    total -= Number(this.value);
+    extrasTotal -= Number(this.value);
+    total = totalNights + extrasTotal;
+    console.log(total);
   }
   updateCost = document.getElementById('total').innerHTML = total;
   document.getElementById('orderTotal').value = updateCost;
@@ -57,17 +64,21 @@ function addTotalNights() {
   }
   console.log(arrivalDay);
   console.log(departureDay);
-  if (arrivalDate >= departureDate) {
+  if (arrivalDate >= departureDate && departureDate != '') {
     alert('Dagen för hemfärd måste vara efter ankomstdagen');
   } else {
-    let nights = departureDay - arrivalDay;
-    console.log(nights);
-    total = 0;
-    total += nights * 10;
+    if (arrivalDate < 1 || departureDate < 1) {
+      nights = 0;
+    } else {
+      nights = departureDay - arrivalDay;
+    }
+    totalNights = nights * 10;
+    console.log(totalNights);
+    total = extrasTotal + totalNights;
+    console.log(total);
     document.getElementById('total').innerHTML = total;
-    updateCost =  parseInt(total);
+    updateCost = parseInt(total);
     document.getElementById('orderTotal').value = updateCost;
-
   }
 }
 //choose departure date
