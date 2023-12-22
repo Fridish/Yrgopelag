@@ -35,6 +35,7 @@ if (isset($_POST["submit"])) {
                 //if everything works, deposit the money to my account
                 depositMoney();
 
+                header('Location:/confirmation.php');
                 //if everything works, redirect to confirmation page with json of booking (using header?)
             }
         }
@@ -114,7 +115,7 @@ function bookRoom()
 {
     $dbName = "yrgopelag.db";
     $db = connect($dbName);
-    $username = trim(htmlspecialchars($_POST['name']));
+    $username = trim(htmlspecialchars($_POST['name'],  ENT_QUOTES));
     $arrival = $_POST['arrival'];
     $departure = $_POST['departure'];
     if (isset($_POST['extras'])) {
