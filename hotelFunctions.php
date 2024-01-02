@@ -117,7 +117,6 @@ function depositMoney()
     }
 }
 
-
 function bookRoom()
 {
     $dbName = "yrgopelag.db";
@@ -134,13 +133,17 @@ function bookRoom()
     }
     $orderTotal = $_POST['orderTotal'];
     $roomNumber = $_POST['roomNumber'];
-    $statement = $db->prepare("INSERT INTO bookings (full_name, arrival, departure, room_number, extras,total_cost) VALUES (:username, :arrival, :departure, :roomNumber, :extras, :orderTotal)");
+    guidv4();
+    $bookingId = $_SESSION['bookingId'];
+    $statement = $db->prepare("INSERT INTO bookings (booking_id, full_name, arrival, departure, room_number, extras,total_cost) VALUES (:bookingId, :username, :arrival, :departure, :roomNumber, :extras, :orderTotal)");
+    $statement->bindValue(':bookingId', $bookingId);
     $statement->bindValue(':username', $username);
     $statement->bindValue(':arrival', $arrival);
     $statement->bindValue(':departure', $departure);
     $statement->bindValue(':roomNumber', $roomNumber);
     $statement->bindValue(':extras', $extras);
     $statement->bindValue(':orderTotal', $orderTotal);
+
     $statement->execute();
 }
 function guidv4(string $data = null): string
@@ -221,7 +224,7 @@ if (isset($_POST['submit'])) {
         'stars' => '2',
         'features' => addFeatureJson(),
         'addtional_info' => "Thank you for choosing STUUGA",
-        'booking_id' => guidv4(),
+        'booking_id' => $_SESSION['bookingId'],
     ];
     file_put_contents(__DIR__ . '/logbook.json', json_encode($vacation, JSON_PRETTY_PRINT));
 }
