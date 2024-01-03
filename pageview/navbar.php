@@ -1,7 +1,7 @@
 <body>
     <header>
         <nav class="navContainer">
-            <div>
+            <div class="navElements">
                 <h1>HOME</h1>
                 <h1>ABOUT</h1>
                 <img src="/Media/vector.svg" alt="">
