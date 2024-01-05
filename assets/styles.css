@@ -23,6 +23,7 @@ body {
   min-height: max-content;
   background-color: #0e1815;
   flex-wrap: wrap;
+  color: #ffffff;
 }
 
 /* nav */
@@ -131,7 +132,7 @@ body {
 .houseWrapper {
   height: 400px;
   width: 100vw;
-  overflow: hidden;
+  overflow: scroll;
   color: #ffffff;
 }
 .houseContainer {
@@ -175,6 +176,20 @@ img.arrow {
   text-align: center;
 }
 
+/* house info-page */
+.houseInformationContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  height: auto;
+  margin-top: 80px;
+}
+.houseInformationContainer > img {
+  width: auto;
+  height: 80vh;
+  object-fit: cover;
+}
 /*calendar*/
 
 #calendarHeader {
