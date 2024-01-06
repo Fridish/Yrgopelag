@@ -1,3 +1,17 @@
+document.addEventListener('DOMContentLoaded', (event) => {
+  const seasideSwiper = new Swiper('.seasideSwiper', {
+    slidesPerView: 3.5,
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+});
+
 /* extras -section*/
 let kajak = document.getElementById('kajak');
 let fiskeutrustning = document.getElementById('fiskeutrustning');
