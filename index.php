@@ -65,7 +65,7 @@ require __DIR__ . '/pageview/navbar.php';
             <h3>Basic Cabbin</h3>
             <p> $5/night </p>
             <p>2 stars</p>
-            <a href="/paclass=" arrow"geview/luxuryHouse.php">
+            <a href="/pageview/regularHouse.php">
                 <img class="arrow" src="/Media/arrow.svg" alt="">
             </a>
         </div>
