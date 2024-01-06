@@ -4,22 +4,22 @@
         <div class="swiper seasideSwiper">
             <div class="swiper-wrapper seasideSwiperWrapper">
                 <div class="swiper-slide seaside">
-                    <img class="houseHeaderImg" src="/Media/seasideCabin.png" alt="A seaside cabin">
+                    <img class="houseHeaderImg" src=<?php echo $mainImage; ?> alt="A seaside cabin">
                 </div>
                 <div class="swiper-slide seaside">
-                    <img src="/Media/seasideSlideshow1.png" alt="">
+                    <img src=<?php echo $slide1; ?> alt="">
                 </div>
                 <div class="swiper-slide seaside">
-                    <img class="swiperImg" src="/Media/seasideSlideshow2.png" alt="">
+                    <img class="swiperImg" src=<?php echo $slide2; ?> alt="">
                 </div>
                 <div class="swiper-slide seaside">
-                    <img class="swiperImg" src="/Media/seasideSlideshow3.png" alt="">
+                    <img class="swiperImg" src=<?php echo $slide3; ?> alt="">
                 </div>
                 <div class="swiper-slide seaside">
-                    <img class="swiperImg" src="/Media/seasideSlideshow4.png" alt="">
+                    <img class="swiperImg" src=<?php echo $slide1; ?> alt="">
                 </div>
                 <div class="swiper-slide seaside">
-                    <img class="swiperImg" src="/Media/seasideSlideshow5.png" alt="">
+                    <img class="swiperImg" src=<?php echo $slide1; ?> alt="">
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
                 <p> <?php echo $cabinDiscription; ?> </p>
             </div>
             <div class="houseStarButton">
-                <img src=" /Media/2Stars.svg" alt="rating of house is 2 stars">
+                <img src=<?php echo $stars; ?> alt="rating of house is 2 stars">
                 <button>BOOK NOW</button>
             </div>
         </div>
