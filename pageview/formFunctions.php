@@ -25,7 +25,7 @@
                 <input type="checkbox" id="fishing" name="extras[fishing]" name="fishing" value=3>
                 <span class="checkmark"></span>
             </label>
-            <p class="extrasInfo">Embark on a natural escape with high-quality equipment for a serene angling experience. Reel in the peaceful surroundings and create unforgettable moments by the water's edge.</p>-->
+            <p class="extrasInfo">Embark on a natural escape with high-quality equipment for a serene angling experience. Reel in the peaceful surroundings and create unforgettable moments by the water's edge.</p>
         </div>
     </div>
     <div class="extrasWrapper">
@@ -72,5 +72,9 @@
             </form>
         </div>
     </div>
+</div>
+<div class="writeReview">
+    <h1>HAVE YOU VISITED STUUGA BEFORE? FEEL FREE TO LEAVE US A REVIEW!</h1>
+    <a>I WANT TO WRITE A REVIEW ></a>
 </div>
 </div>
