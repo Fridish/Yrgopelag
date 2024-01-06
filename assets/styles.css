@@ -38,6 +38,7 @@ body,
 
 /* nav */
 .navContainer {
+  z-index: 3;
   position: fixed;
   top: 0;
   width: 100vw;
@@ -187,6 +188,22 @@ img.arrow {
 }
 
 /* house info-page Header */
+.houseHeaderBackground {
+  z-index: 1;
+}
+.seasideSwiper {
+  width: 100%;
+  height: 600px;
+  margin-bottom: 80px;
+}
+.seaside img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
 .houseInformationContainer {
   display: flex;
   flex-direction: row;
@@ -205,6 +222,7 @@ img.arrow {
   height: auto;
   width: auto;
   position: absolute;
+  z-index: 2;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -70%);
@@ -251,24 +269,6 @@ img.arrow {
   height: 30px;
   margin-right: 10px;
 }
-
-/* house info page information body */
-.seasideSwiper {
-  width: 100%;
-  height: 300px;
-  margin-top: 16px;
-}
-.swiper-wrapper {
-  width: 100%;
-}
-.seaside img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  max-width: 400px;
-  max-height: 400px;
-}
-
 /* house info page information body */
 .houseInfoContainer {
   display: flex;
@@ -280,21 +280,22 @@ img.arrow {
   margin-bottom: 50px;
 }
 .houseInfoText {
-  width: 40%;
+  width: 45%;
   height: auto;
   display: flex;
   flex-direction: column;
   border-right: 2px solid #ffffff;
   font-size: 18px;
   padding-right: 40px;
-  margin-left: 100px;
+  margin-left: 15%;
+  line-height: 150%;
 }
 .houseInfoFeatures {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 80px;
+  margin-top: 32px;
 }
 .houseInfoFeatures > div,
 .houseInfoExtrasContainer {
@@ -324,14 +325,95 @@ img.arrow {
   font-size: 16px;
 }
 .houseInfoExtras {
-  width: 30%;
+  width: auto;
   height: auto;
+  margin-right: 15%;
 }
 .houseInfoExtras > div {
   gap: 30px;
 }
 .houseInfoExtras > a {
   color: #ffffff;
+}
+
+/* form styling */
+.bookingFormWrapper {
+  margin-left: 15%;
+  margin-right: 15%;
+  padding-bottom: 32px;
+}
+.formHeaderBig {
+  margin-top: 32px;
+  font-size: 30px;
+}
+.formHeaderSmall {
+  color: #beb0b0;
+  font-size: 20px;
+  margin-top: 0px;
+}
+.dateWrapper {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  height: 30px;
+  margin-bottom: 0px;
+}
+.datePicker {
+  font-size: 20px;
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+.dateWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 30%;
+  height: 30px;
+  margin-bottom: 40px;
+}
+.extrasWrapper {
+  display: flex;
+  flex-direction: row;
+  background-color: #232529;
+  width: auto;
+  height: auto;
+  height: 100px;
+}
+.extrasCardContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  width: 100%;
+  height: 100%;
+  gap: 16px;
+}
+.extrasInfoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.extrasInfoContainer > p {
+  font-size: 14px;
+}
+
+.orderTotal {
+  font-size: 30px;
+  margin-bottom: 16px;
+}
+.orderDetailsWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  margin-bottom: 32px;
+  background-color: #232529;
 }
 /*calendar*/
 
