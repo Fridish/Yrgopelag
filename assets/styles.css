@@ -146,13 +146,6 @@ body,
   object-fit: cover;
   overflow: hidden;
 }
-.footer {
-  margin-top: 50px;
-  width: 100%;
-  height: 200px;
-  background-color: #232529;
-  color: white;
-}
 .houseWrapper {
   height: 400px;
   width: 100vw;
@@ -356,7 +349,7 @@ img.arrow {
   padding-bottom: 32px;
 }
 .formHeaderBig {
-  margin-top: 32px;
+  margin-top: 80px;
   font-size: 30px;
 }
 .formHeaderSmall {
@@ -487,4 +480,59 @@ tbody {
   flex-direction: column;
   width: auto;
   height: 200px;
+}
+.writeReview {
+  justify-content: center;
+  text-align: center;
+  margin-left: 22%;
+  margin-right: 22%;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+.writeReview h1 {
+  font-size: 24px;
+  font-weight: 400;
+}
+.writeReview p {
+  font-size: 12px;
+}
+
+/* footer */
+.footerContainer {
+  display: flex;
+  justify-content: center;
+}
+.footerElements {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 70%;
+  height: 100%;
+  margin-top: 16px;
+  margin-bottom: 60px;
+  border-bottom: 1px solid #ffffff;
+}
+.footerHeader > h1 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.footer {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  padding-bottom: 16px;
+  background-color: #232529;
+}
+.newsletterContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 60px;
+}
+.footerLegal {
+  margin-left: 5%;
 }
