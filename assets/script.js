@@ -1,7 +1,10 @@
 document.addEventListener('DOMContentLoaded', (event) => {
   const seasideSwiper = new Swiper('.seasideSwiper', {
-    slidesPerView: 3.5,
+    slidesPerView: 1,
     loop: true,
+    autoplay: {
+      delay: 3000,
+    },
     pagination: {
       el: '.swiper-pagination',
     },
@@ -13,18 +16,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 /* extras -section*/
-let kajak = document.getElementById('kajak');
-let fiskeutrustning = document.getElementById('fiskeutrustning');
+let kayak = document.getElementById('kayak');
+let fishing = document.getElementById('fishing');
 let guide = document.getElementById('guide');
-let bergsklättring = document.getElementById('bergsklättring');
+let mountainclimbing = document.getElementById('mountainclimbing');
 let total = 0;
 let addArrival = document.getElementById('arrival');
 let addDeparture = document.getElementById('departure');
 
 guide.addEventListener('click', addCost);
-bergsklättring.addEventListener('click', addCost);
-fiskeutrustning.addEventListener('click', addCost);
-kajak.addEventListener('click', addCost);
+mountainclimbing.addEventListener('click', addCost);
+fishing.addEventListener('click', addCost);
+kayak.addEventListener('click', addCost);
 
 addDeparture.addEventListener('change', addTotalNights);
 addArrival.addEventListener('change', addTotalNights);
