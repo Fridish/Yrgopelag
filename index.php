@@ -32,7 +32,7 @@ require __DIR__ . '/pageview/navbar.php';
     </div>
 </div>
 <div class="sceneryContainer">
-    <h1>UPPTÄCK HAVET OCH KLIPPORNA</h1>
+    <h1>DISCOVER THE ISLAND AND THE OCEAN</h1>
     <div class="sceneryImages">
         <img src="/Media/scenery1.png" alt="">
         <img src="/Media/scenery2.png" alt="">
@@ -40,32 +40,32 @@ require __DIR__ . '/pageview/navbar.php';
     </div>
 </div>
 <div class="houseWrapper">
-    <h1>OUR CABBINS</h1>
+    <h1>OUR CABINS</h1>
     <div class="houseInnerWrapper">
         <div class="houseContainer">
-            <img src="Media/house1.png" alt="">
+            <img src="Media/seasideCabin.png" alt="">
             <h3>Basic Cabbin</h3>
             <p> $5/night </p>
             <p>2 stars</p>
-            <a href="/pageview/basicHouse.php">
+            <a href="/pageview/seasideCabin.php">
                 <img class="arrow" src="/Media/arrow.svg" alt="">
             </a>
         </div>
         <div class="houseContainer">
-            <img src="Media/House2.png" alt="">
+            <img src="Media/forestCabin.png" alt="">
             <h3>Basic Cabbin</h3>
             <p> $5/night </p>
             <p>2 stars</p>
-            <a href="/pageview/regularHouse.php">
+            <a href="/pageview/forestCabin.php">
                 <img class="arrow" src="/Media/arrow.svg" alt="">
             </a>
         </div>
         <div class="houseContainer">
-            <img src="Media/House3.png" alt="">
+            <img src="Media/mountainCabin.png" alt="">
             <h3>Basic Cabbin</h3>
             <p> $5/night </p>
             <p>2 stars</p>
-            <a href="/pageview/regularHouse.php">
+            <a href="/pageview/mountainCabin.php">
                 <img class="arrow" src="/Media/arrow.svg" alt="">
             </a>
         </div>

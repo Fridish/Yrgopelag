@@ -3,24 +3,14 @@
     <div class="houseHeaderBackground">
         <div class="swiper seasideSwiper">
             <div class="swiper-wrapper seasideSwiperWrapper">
-                <div class="swiper-slide seaside">
-                    <img class="houseHeaderImg" src=<?php echo $mainImage; ?> alt="A seaside cabin">
-                </div>
-                <div class="swiper-slide seaside">
-                    <img src=<?php echo $slide1; ?> alt="">
-                </div>
-                <div class="swiper-slide seaside">
-                    <img class="swiperImg" src=<?php echo $slide2; ?> alt="">
-                </div>
-                <div class="swiper-slide seaside">
-                    <img class="swiperImg" src=<?php echo $slide3; ?> alt="">
-                </div>
-                <div class="swiper-slide seaside">
-                    <img class="swiperImg" src=<?php echo $slide1; ?> alt="">
-                </div>
-                <div class="swiper-slide seaside">
-                    <img class="swiperImg" src=<?php echo $slide1; ?> alt="">
-                </div>
+                <?php
+                foreach ($slides as $slide) {
+                ?> <div class="swiper-slide seaside">
+                        <img class="swiperImg" src='<?php echo $slide ?>' alt="house images">
+                    </div>
+                <?php
+                }
+                ?>
             </div>
         </div>
         <div class="houseHeaderOverlay">

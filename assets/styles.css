@@ -164,6 +164,10 @@ body,
 .houseContainer > * {
   margin: 0px;
 }
+img.houseContainer {
+  width: 400px;
+  height: 300px;
+}
 .sceneryContainer {
   color: #ffffff;
 }
@@ -344,12 +348,19 @@ img.arrow {
 
 /* form styling */
 .bookingFormWrapper {
+  background-color: #232529;
+  padding-top: 32px;
+}
+.bookingFormWrapper {
   margin-left: 15%;
   margin-right: 15%;
-  padding-bottom: 32px;
+}
+.bookingFormWrapper > * {
+  margin-left: 16px;
+  margin-right: 16px;
 }
 .formHeaderBig {
-  margin-top: 80px;
+  margin-top: 32px;
   font-size: 30px;
 }
 .formHeaderSmall {
@@ -407,7 +418,9 @@ img.arrow {
 .extrasInfoContainer > p {
   font-size: 14px;
 }
-
+.orderDetails {
+  padding-bottom: 32px;
+}
 .orderTotal {
   font-size: 30px;
   margin-bottom: 16px;
@@ -510,29 +523,56 @@ tbody {
   height: 100%;
   margin-top: 16px;
   margin-bottom: 60px;
-  border-bottom: 1px solid #ffffff;
 }
 .footerHeader > h1 {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
   margin-bottom: 16px;
 }
 .footer {
   display: flex;
+  text-align: center;
   width: 100%;
   height: auto;
   flex-direction: column;
   padding-bottom: 16px;
   background-color: #232529;
 }
-.newsletterContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-bottom: 60px;
+.footer h3 {
+  margin-top: 32px;
 }
 .footerLegal {
-  margin-left: 5%;
+  display: flex;
+  justify-content: center;
+}
+
+/* confirmation page */
+body {
+  background-color: #111619;
+}
+.confirmationMessage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  color: #ffffff;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  height: auto;
+}
+.dropdownContent {
+  display: none;
+  position: absolute;
+  min-width: 100%;
+  height: auto;
+  z-index: 1;
+}
+.dropdown:hover,
+.dropdownContent {
+  display: block;
 }

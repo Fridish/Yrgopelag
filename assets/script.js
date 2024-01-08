@@ -82,7 +82,7 @@ function addTotalNights() {
   console.log(arrivalDay);
   console.log(departureDay);
   if (arrivalDate >= departureDate && departureDate != '') {
-    alert('Dagen för hemfärd måste vara efter ankomstdagen');
+    alert('Arrival date must be before departure date');
   } else {
     if (arrivalDate < 1 || departureDate < 1) {
       nights = 0;
@@ -106,7 +106,7 @@ function addDepartureDate() {
   let departureDate = new Date('2024-01-' + day + 'T00:00:00Z');
 
   if (departureDate <= arrivalDate) {
-    alert('Dagen för hemfärd måste vara efter ankomstdagen');
+    alert('Departure date must be after arrival date');
     return;
   } else {
     this.style.backgroundColor = 'blue';

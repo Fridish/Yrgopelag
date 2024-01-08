@@ -12,7 +12,7 @@
         <img src="/Media/kayak.png" alt="kayaking">
         <div class="extrasInfoContainer">
             <label class="container">KAYAK $5
-                <input type="checkbox" id="kajak" name="extras[kayak]" name="kayak" value=5>
+                <input type="checkbox" id="kayak" name="extras[kayak]" name="kayak" value=5>
                 <span class="checkmark"></span>
             </label>
             <p class="extrasInfo">Unlock the thrill of the sea with our kayak borrowing service and immerse yourself in the tranquility of paddling as you explore the beauty of nature from a unique and unforgettable perspective.</p>
@@ -53,12 +53,6 @@
     <h1 class="formHeaderBig">ORDER DETAILS</h1>
     <div class="orderDetailsWrapper">
         <div>
-            <div class="dateArrival">
-                <p class=" datePicker"> FROM: <input type="date" id="arrival" name="arrival" min="2024-01-01" max="2024-01-31"></input>
-            </div>
-            <div class="dateDeparture">
-                <p class="datePicker"> TO: <input id="departure" name="departure" type="date" min="2024-01-01" max="2024-01-31"></input>
-            </div>
             <p>Price/night:</p>
             <p>Extras:</p>
         </div>
@@ -73,8 +67,8 @@
         </div>
     </div>
 </div>
+</div>
 <div class="writeReview">
     <h1>HAVE YOU VISITED STUUGA BEFORE? FEEL FREE TO LEAVE US A REVIEW!</h1>
     <a>I WANT TO WRITE A REVIEW ></a>
-</div>
 </div>
