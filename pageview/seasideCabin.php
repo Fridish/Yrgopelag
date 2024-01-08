@@ -8,12 +8,14 @@ $roomNumber = 1;
 $cabinName = "SEASIDE CABIN";
 $cabinDiscription = "This cozy seaside cabin with panoramic ocean views and a crackling fireplace, offering timeless coastal charm.";
 $price = 10;
-$mainImage = "/Media/seasideCabin.png";
-$slide1 = "/Media/seasideSlideshow1.png";
-$slide2 = "/Media/seasideSlideshow2.png";
-$slide3 = "/Media/seasideSlideshow3.png";
-$slide4 = "/Media/seasideSlideshow4.png";
-$slide5 = "/Media/seasideSlideshow5.png";
+$slides = [
+    "/Media/seasideCabin.png",
+    "/Media/seasideSlideshow1.png",
+    "/Media/seasideSlideshow2.png",
+    "/Media/seasideSlideshow3.png",
+    "/Media/seasideSlideshow4.png",
+    "/Media/seasideSlideshow5.png"
+];
 $stars = "/Media/2Stars.svg";
 
 require __DIR__ . '/../vendor/autoload.php';
