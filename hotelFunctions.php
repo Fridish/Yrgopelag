@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 require __DIR__ . '/vendor/autoload.php';
-session_start();
 $dbName = "yrgopelag.db";
 
 function connect(string $dbName): object
@@ -143,7 +142,6 @@ function bookRoom()
     $statement->bindValue(':roomNumber', $roomNumber);
     $statement->bindValue(':extras', $extras);
     $statement->bindValue(':orderTotal', $orderTotal);
-
     $statement->execute();
 }
 function guidv4(string $data = null): string

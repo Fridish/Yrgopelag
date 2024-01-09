@@ -21,7 +21,6 @@ $stars = "/Media/2Stars.svg";
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/header.php';
 require __DIR__ . '/navbar.php';
-require __DIR__ . '/calendarFunctions.php';
 require __DIR__ . '/houseDetailPage.php';
 require __DIR__ . '/formFunctions.php';
 require __DIR__ . '/footer.php';

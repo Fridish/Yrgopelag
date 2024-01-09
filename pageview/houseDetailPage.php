@@ -24,7 +24,6 @@
             </div>
         </div>
     </div>
-
     <!-- this is the information about the house. -->
     <div class="houseInfoContainer">
         <div class="houseInfoText">

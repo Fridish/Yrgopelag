@@ -14,17 +14,19 @@ body::-webkit-scrollbar-thumb {
   background-color: rgb(57, 52, 52);
   border-radius: 10px;
 }
-body,
-.houseStarButton > button {
+body {
   display: block;
   margin: 0;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   height: 100%;
   min-height: max-content;
-  background-color: #111619;
+  background-color: #17191f;
   flex-wrap: wrap;
   color: #ffffff;
+}
+body,
+.houseStarButton > button {
   font-family: 'Josefin Sans', sans-serif;
 }
 .houseTextWrap > h1 {
@@ -34,6 +36,10 @@ body,
 .houseTextWrap > p {
   font-weight: 400;
   font-style: italic;
+}
+a {
+  text-decoration: none;
+  color: #ffffff;
 }
 
 /* nav */
@@ -75,51 +81,81 @@ body,
 }
 
 /* hero */
-.heroWrapper {
+.indexHeroWrapper {
   background-size: cover;
   width: 100%;
-  height: 90%;
-  text-align: center;
+  height: 90vh;
+  text-align: left;
   color: white;
+  background-image: url(/Media/HeroTest.png);
+  background-size: cover;
 }
-.heroText {
+
+.indexHeroText {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  left: 10%;
+}
+.indexHeroText > h1 {
+  font-size: 70px;
+  font-weight: 700;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+.indexHeroText > p {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 0px;
 }
 .heroWrapper > img {
-  width: 100%;
+  min-width: 100%;
   height: 100%;
   object-fit: cover;
+  overflow: hidden;
+}
+.houseWrapper {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+  margin-top: 32px;
+}
+.houseOuterContainer {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  height: auto;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+.houseWrapperH1 {
+  margin-left: 15%;
 }
 .houseInnerWrapper {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 100%;
   height: 400px;
-  margin: 0px;
-}
-.houseInnerWrapper img {
-  width: 300px;
-  height: 300px;
-  overflow: hidden;
-  object-fit: cover;
+  margin-bottom: 32px;
 }
 
 .indexInfoWrapper {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: row;
   width: 100%;
-  height: 400px;
+  height: 80vh;
   margin-top: 80px;
   margin-bottom: 80px;
+  background-image: url(/Media/aboutUsBG.png);
 }
 .indexContainer {
   width: 70vw;
-  height: 100%;
+  height: auto;
   background-color: #232529;
   display: flex;
   flex-direction: row;
@@ -134,6 +170,15 @@ body,
   margin-left: 5%;
   text-align: left;
   color: #ffffff;
+  font-size: 20px;
+  line-height: 120%;
+}
+.indexInfoText > h1 {
+  text-align: left;
+  font-size: 34px;
+  width: 100%;
+  margin-bottom: 0px;
+  margin-top: 32px;
 }
 .indexInfoImage {
   width: 40%;
@@ -146,34 +191,44 @@ body,
   object-fit: cover;
   overflow: hidden;
 }
-.houseWrapper {
-  height: 400px;
-  width: 100vw;
-  overflow: scroll;
-  color: #ffffff;
-}
 .houseContainer {
-  display: flex;
-  flex-direction: column;
-  width: 20%;
-  height: 100%;
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-  font-size: 10px;
+  width: 25%;
+  height: auto;
+  overflow: hidden;
+  object-fit: cover;
+  background-color: #232529;
 }
 .houseContainer > * {
   margin: 0px;
 }
-img.houseContainer {
-  width: 400px;
+.indexHouseImg {
+  width: 100%;
   height: 300px;
+  object-fit: cover;
+  overflow: hidden;
 }
 .sceneryContainer {
   color: #ffffff;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 .sceneryImages {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+}
+.reviewsContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 32px;
+}
+.reviewsContainer > h1 {
+  font-size: 30px;
+}
+.reviewsContainer > p {
+  font-size: 16px;
 }
 .test,
 .reviews {
@@ -181,12 +236,6 @@ img.houseContainer {
   height: 200px;
   background-color: #232529;
   color: white;
-}
-
-.houseContainer > img {
-  width: 90%;
-  height: auto;
-  object-fit: cover;
 }
 img.arrow {
   width: 30px;
@@ -444,8 +493,8 @@ img.arrow {
   background-color: rgb(236, 118, 118) !important;
 }
 .calendarButton {
-  width: 45px;
-  height: 45px;
+  width: 30px;
+  height: 30px;
   background-color: transparent;
   border: none;
   border-radius: 100%;
@@ -473,8 +522,8 @@ img.arrow {
   color: rgb(0, 0, 0);
 }
 td {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   border-radius: 10%;
   background-color: white;
   color: black;
@@ -547,9 +596,6 @@ tbody {
 }
 
 /* confirmation page */
-body {
-  background-color: #111619;
-}
 .confirmationMessage {
   display: flex;
   flex-direction: column;
@@ -561,18 +607,21 @@ body {
 }
 .dropdown {
   position: relative;
-  display: inline-block;
-  width: auto;
-  height: auto;
+  background-color: #232529;
+  margin-top: 40px;
 }
 .dropdownContent {
   display: none;
-  position: absolute;
-  min-width: 100%;
-  height: auto;
+  background-color: #2f2727;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
   z-index: 1;
 }
-.dropdown:hover,
-.dropdownContent {
+.dropdown:hover .dropdownContent {
   display: block;
+}
+.dateWrapper {
+  width: 50%;
+  height: 30px;
 }
