@@ -493,8 +493,8 @@ img.arrow {
   background-color: rgb(236, 118, 118) !important;
 }
 .calendarButton {
-  width: 45px;
-  height: 45px;
+  width: 30px;
+  height: 30px;
   background-color: transparent;
   border: none;
   border-radius: 100%;
@@ -522,8 +522,8 @@ img.arrow {
   color: rgb(0, 0, 0);
 }
 td {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   border-radius: 10%;
   background-color: white;
   color: black;
@@ -607,18 +607,21 @@ tbody {
 }
 .dropdown {
   position: relative;
-  width: auto;
-  height: auto;
   background-color: #232529;
   margin-top: 40px;
 }
 .dropdownContent {
   display: none;
   background-color: #2f2727;
-  min-width: 160px;
+  min-width: 200px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
+  z-index: 1;
 }
 .dropdown:hover .dropdownContent {
   display: block;
+}
+.dateWrapper {
+  width: 50%;
+  height: 30px;
 }

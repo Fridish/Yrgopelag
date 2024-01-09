@@ -1,27 +1,92 @@
+<?php
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../hotelFunctions.php';
+require __DIR__ . '/calendarFunctions.php';
+?>
+
 <div class="dateWrapper">
     <div class="dateArrival dropdown">
-        <p class="datePicker"> FROM: </p>
-        <div class="dropdownHeader">
-            <p> 2024-00-00</p>
-        </div>
+        <p class="datePicker"> FROM: <span id="arrival"> 2024-00-00</span></p>
         <div class="dropdownContent">
             <?php
-            require __DIR__ . '/calendar.php';
+            $calendar = new Calendar();
+            $calendar->create();
+            ?>
+            <div class="calendarContainer">
+                <div id="calendarHeader">
+                    <p>Januari 2024</p>
+                </div>
+                <div class="calendarWrapper">
+
+                    <table class="calendar">
+                        <tbody>
+                            <?php foreach ($calendar->getWeek() as $week) : ?>
+                                <tr>
+                                    <?php foreach ($week as $day) :
+                                        $date = "2024-01-" . str_pad($day, 2, "0", STR_PAD_LEFT); //för att få rätt format på datumet
+                                        $db = connect($dbName);
+                                        $statement = $db->prepare("select * from bookings where (arrival = :date or departure = :date or :date between arrival and departure )and room_number = :roomNumber");
+
+                                        $statement->bindValue(':date', $date);
+                                        $statement->bindValue(':roomNumber', $roomNumber);
+                                        $statement->execute();
+                                        $bookings = $statement->fetchAll();
+                                        $class = count($bookings) > 0 ? 'booked' : '';
+                                    ?>
+                                        <td class=" <?php echo $class ?> arrival" data="<?php echo date("2024-01-" . $day); ?>"><?php echo $day; ?>
+                                        </td>
+                                    <?php endforeach; ?>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            ?>
+        </div>
+    </div>
+    <div class="dateDeparture dropdown">
+        <p class="datePicker"> FROM: <span id="departure"> 2024-00-00</span></p>
+        <div class="dropdownContent departure">
+            <?php
+            $calendar2 = new Calendar();
+            $calendar2->create();
+            ?>
+            <div class="calendarContainer">
+                <div id="calendarHeader">
+                    <p>Januari 2024</p>
+                </div>
+                <div class="calendarWrapper">
+
+                    <table class="calendar">
+                        <tbody>
+                            <?php foreach ($calendar2->getWeek() as $week) : ?>
+                                <tr>
+                                    <?php foreach ($week as $day) :
+                                        $date = "2024-01-" . str_pad($day, 2, "0", STR_PAD_LEFT); //för att få rätt format på datumet
+                                        $db = connect($dbName);
+                                        $statement = $db->prepare("select * from bookings where (arrival = :date or departure = :date or :date between arrival and departure )and room_number = :roomNumber");
+
+                                        $statement->bindValue(':date', $date);
+                                        $statement->bindValue(':roomNumber', $roomNumber);
+                                        $statement->execute();
+                                        $bookings = $statement->fetchAll();
+                                        $class = count($bookings) > 0 ? 'booked' : '';
+                                    ?>
+                                        <td class=" <?php echo $class ?> departure" data="<?php echo date("2024-01-" . $day); ?>"><?php echo $day; ?>
+                                        </td>
+                                    <?php endforeach; ?>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             ?>
         </div>
     </div>
 </div>
-<div class="dateDeparture dropdown">
-    <p class="datePicker"> TO: </p>
-    <div class="dropdownHeader">
-        <p> 2024-00-00</p>
-        <div class="dropdownContent">
-            <?php
-            require __DIR__ . '/calendar.php';
-            ?>
-        </div>
-    </div>
-</div>
+
 <div class="formHeaderBig">EXTRAS</div>
 <div class="extrasCardContainer">
     <div class="extrasWrapper">
