@@ -5,19 +5,21 @@ require __DIR__ . '/calendarFunctions.php';
 ?>
 
 <div class="dateWrapper">
-    <div class="dateArrival dropdown">
-        <p class="datePicker"> FROM: <span id="arrival"> 2024-00-00</span></p>
-        <div class="dropdownContent">
-            <?php
-            $calendar = new Calendar();
-            $calendar->create();
-            ?>
+    <div class="dateArrival dropdown" id="ddbtn1">
+        <div class="datePicker">
+            <p> FROM: </p>
+            <span class="dropdownButton"> 2024-00-00</span>
+        </div>
+        <div class="dropdownContent arrival">
             <div class="calendarContainer">
                 <div id="calendarHeader">
                     <p>Januari 2024</p>
                 </div>
                 <div class="calendarWrapper">
-
+                    <?php
+                    $calendar = new Calendar();
+                    $calendar->create();
+                    ?>
                     <table class="calendar">
                         <tbody>
                             <?php foreach ($calendar->getWeek() as $week) : ?>
@@ -42,11 +44,13 @@ require __DIR__ . '/calendarFunctions.php';
                     </table>
                 </div>
             </div>
-            ?>
         </div>
     </div>
-    <div class="dateDeparture dropdown">
-        <p class="datePicker"> FROM: <span id="departure"> 2024-00-00</span></p>
+    <div class="dateDeparture dropdown" id="ddbtn2">
+        <div class="datePicker">
+            <p> TO:</p>
+            <span class="dropdownButton"> 2024-00-00</span>
+        </div>
         <div class="dropdownContent departure">
             <?php
             $calendar2 = new Calendar();
@@ -82,7 +86,6 @@ require __DIR__ . '/calendarFunctions.php';
                     </table>
                 </div>
             </div>
-            ?>
         </div>
     </div>
 </div>
