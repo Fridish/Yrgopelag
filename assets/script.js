@@ -20,25 +20,43 @@ let kayak = document.getElementById('kayak');
 let fishing = document.getElementById('fishing');
 let guide = document.getElementById('guide');
 let mountainclimbing = document.getElementById('mountainclimbing');
-let total = 0;
-let addArrival = document.getElementById('arrival');
-let addDeparture = document.getElementById('departure');
+let addArrival = document.getElementsByClassName('arrival'); //Should these be class, not id?
+let addDeparture = document.getElementsByClassName('departure');
+let dropdownButton1 = document.getElementById('ddbtn1');
+let dropdownButton2 = document.getElementById('ddbtn2');
 
 guide.addEventListener('click', addCost);
 mountainclimbing.addEventListener('click', addCost);
 fishing.addEventListener('click', addCost);
 kayak.addEventListener('click', addCost);
 
-addDeparture.addEventListener('change', addTotalNights);
-addArrival.addEventListener('change', addTotalNights);
+dropdownButton1.addEventListener('click', toggleVisibility);
+dropdownButton2.addEventListener('click', toggleVisibility);
+for (let i = 0; i < addArrival.length; i++) {
+  addArrival[i].addEventListener('change', addTotalNights);
+}
+for (let i = 0; i < addDeparture.length; i++) {
+  addDeparture[i].addEventListener('change', addTotalNights);
+}
+
+//toggle visibility of dropdown menu//
+function toggleVisibility() {
+  if (this.children[1].classList.contains('active')) {
+    this.children[1].classList.remove('active');
+  } else {
+    this.children[1].classList.add('active');
+  }
+}
+
+let total = 0;
 let extrasTotal = 0;
 let totalNights = 0;
-/*for (let i = 0; i < addArrival.length; i++) {
-/  addArrival[i].addEventListener('click', addArrivalDate);
+for (let i = 0; i < addArrival.length; i++) {
+  addArrival[i].addEventListener('click', addArrivalDate);
 }
 for (let i = 0; i < addDeparture.length; i++) {
   addDeparture[i].addEventListener('click', addDepartureDate);
- }*/
+}
 
 //add cost of extras to the total cost
 function addCost() {

@@ -421,21 +421,13 @@ img.arrow {
   display: flex;
   flex-direction: row;
   width: 50%;
-  height: 30px;
-  margin-bottom: 0px;
+  height: 80px;
+  margin-bottom: 10px;
 }
 .datePicker {
   font-size: 20px;
   margin-top: 0px;
   margin-bottom: 16px;
-}
-.dateWrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 30%;
-  height: 30px;
-  margin-bottom: 40px;
 }
 .extrasWrapper {
   display: flex;
@@ -618,10 +610,18 @@ tbody {
   padding: 12px 16px;
   z-index: 1;
 }
-.dropdown:hover .dropdownContent {
+.active {
   display: block;
 }
-.dateWrapper {
-  width: 50%;
-  height: 30px;
+.dropdownButton {
+  width: 200px;
+  height: 40px;
+  background-color: transparent;
+  border: 2px solid white;
+  cursor: pointer;
+}
+.datePicker {
+  display: flex;
+  flex-direction: row;
+  margin: 0px;
 }
