@@ -2,11 +2,19 @@
     <header>
         <nav class="navContainer">
             <div class="navElements">
-                <h1>HOME</h1>
-                <h1>ABOUT</h1>
+                <a href="/index.php">
+                    <h1>HOME</h1>
+                </a>
+                <a href="/index.php">
+                    <h1>ABOUT</h1>
+                </a>
                 <img class="navSvg" src="/Media/vector.svg" alt="">
-                <h1>EVENTS</h1>
-                <h1>SIGN IN</h1>
+                <a href="/events.php">
+                    <h1>EVENTS</h1>
+                </a>
+                <a href="/signIn.php">
+                    <h1>SIGN IN</h1>
+                </a>
             </div>
         </nav>
     </header>

@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/../hotelFunctions.php';
-
+require __DIR__ . '/calendarFunctions.php';
 
 $calendar = new Calendar();
 $calendar->create();

@@ -1,9 +1,25 @@
 <div class="dateWrapper">
-    <div class="dateArrival">
-        <p class=" datePicker"> FROM: <input type="date" id="arrival" name="arrival" min="2024-01-01" max="2024-01-31"></input>
+    <div class="dateArrival dropdown">
+        <p class="datePicker"> FROM: </p>
+        <div class="dropdownHeader">
+            <p> 2024-00-00</p>
+        </div>
+        <div class="dropdownContent">
+            <?php
+            require __DIR__ . '/calendar.php';
+            ?>
+        </div>
     </div>
-    <div class="dateDeparture">
-        <p class="datePicker"> TO: <input id="departure" name="departure" type="date" min="2024-01-01" max="2024-01-31"></input>
+</div>
+<div class="dateDeparture dropdown">
+    <p class="datePicker"> TO: </p>
+    <div class="dropdownHeader">
+        <p> 2024-00-00</p>
+        <div class="dropdownContent">
+            <?php
+            require __DIR__ . '/calendar.php';
+            ?>
+        </div>
     </div>
 </div>
 <div class="formHeaderBig">EXTRAS</div>
