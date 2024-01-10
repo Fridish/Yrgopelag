@@ -8,9 +8,12 @@ require __DIR__ . '/calendarFunctions.php';
     <div class="dateArrival dropdown" id="ddbtn1">
         <div class="datePicker">
             <p> FROM: </p>
-            <span class="dropdownButton"> 2024-00-00</span>
+            <div class="dropdownButton">
+                <span class="arrivalDate"> 2024-00-00</span>
+                <img src="/Media/arrowDown.svg" alt="arrow">
+            </div>
         </div>
-        <div class="dropdownContent arrival">
+        <div class="dropdownContent">
             <div class="calendarContainer">
                 <div id="calendarHeader">
                     <p>Januari 2024</p>
@@ -49,9 +52,12 @@ require __DIR__ . '/calendarFunctions.php';
     <div class="dateDeparture dropdown" id="ddbtn2">
         <div class="datePicker">
             <p> TO:</p>
-            <span class="dropdownButton"> 2024-00-00</span>
+            <div class="dropdownButton">
+                <span class="departureDate"> 2024-00-00</span>
+                <img src="/Media/arrowDown.svg" alt="arrow">
+            </div>
         </div>
-        <div class="dropdownContent departure">
+        <div class="dropdownContent">
             <?php
             $calendar2 = new Calendar();
             $calendar2->create();

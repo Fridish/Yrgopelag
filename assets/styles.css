@@ -432,7 +432,7 @@ img.arrow {
 .extrasWrapper {
   display: flex;
   flex-direction: row;
-  background-color: #232529;
+  background-color: #17191f;
   width: auto;
   height: auto;
   height: 100px;
@@ -599,12 +599,11 @@ tbody {
 }
 .dropdown {
   position: relative;
-  background-color: #232529;
   margin-top: 40px;
 }
 .dropdownContent {
   display: none;
-  background-color: #2f2727;
+  background-color: #17191f;
   min-width: 200px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
@@ -614,12 +613,36 @@ tbody {
   display: block;
 }
 .dropdownButton {
-  width: 200px;
-  height: 40px;
+  display: flex;
+  width: 180px;
+  height: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background-color: transparent;
-  border: 2px solid white;
+  border-bottom: 2px solid white;
   cursor: pointer;
+  text-align: left;
+  line-height: 40px;
+  justify-content: space-between;
+  margin-left: 16px;
+  margin-right: 85px;
 }
+.dropdownButton img {
+  width: 16px;
+  height: 16px;
+  margin-bottom: 0px;
+  padding-top: 10px;
+}
+.dropdownButton:hover {
+  background-color: white;
+  color: black;
+  transition-duration: 0.2s;
+}
+img.dropdownButton:hover {
+  filter: invert(100%);
+  transition-duration: 0.2s;
+}
+
 .datePicker {
   display: flex;
   flex-direction: row;
