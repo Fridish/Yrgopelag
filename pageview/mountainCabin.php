@@ -7,7 +7,7 @@ $houseInfoText = "Nestled in the solitude of mountain peaks and surrounded by to
 $roomNumber = 3;
 $cabinName = "MOUNTAIN CABIN";
 $cabinDiscription = "Perched in mountain solitude, this cabin beckons with panoramic views, a crackling fireplace, and rustic tranquility.";
-$price = 15;
+$price = 12;
 $slides = [
     "/Media/mountainCabin.png",
     "/Media/mountainSlideshow1.png",
@@ -22,5 +22,8 @@ require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/header.php';
 require __DIR__ . '/navbar.php';
 require __DIR__ . '/houseDetailPage.php';
+?>
+<p class=invisible><?php echo $roomNumber; ?></p>
+<?php
 require __DIR__ . '/formFunctions.php';
 require __DIR__ . '/footer.php';

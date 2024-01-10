@@ -33,6 +33,91 @@
             ],
             "addtional_info": "Thank you for choosing STUUGA",
             "booking_id": "3b1c9779-0f71-4211-a85d-a5c8304c2a96"
+        },
+        {
+            "guest": "",
+            "island": "Berghav",
+            "hotel": "STUUGA",
+            "arrival_date": "",
+            "departure_date": "",
+            "total_cost": "",
+            "stars": "2",
+            "features": [
+                {
+                    "name": "No extras",
+                    "price": 0
+                }
+            ],
+            "addtional_info": "Thank you for choosing STUUGA",
+            "booking_id": null
+        },
+        {
+            "guest": "Rune",
+            "island": "Berghav",
+            "hotel": "STUUGA",
+            "arrival_date": "2024-01-07",
+            "departure_date": "2024-01-08",
+            "total_cost": 17,
+            "stars": "2",
+            "features": [
+                {
+                    "name": "kayak",
+                    "price": 5
+                }
+            ],
+            "addtional_info": "Thank you for choosing STUUGA",
+            "booking_id": "b54e5d9d-2028-4337-86f6-4cb46c4bf0e5"
+        },
+        {
+            "guest": "Rune",
+            "island": "Berghav",
+            "hotel": "STUUGA",
+            "arrival_date": "2024-01-09",
+            "departure_date": "2024-01-10",
+            "total_cost": "17",
+            "stars": "2",
+            "features": [
+                {
+                    "name": "kayak",
+                    "price": 5
+                }
+            ],
+            "addtional_info": "Thank you for choosing STUUGA",
+            "booking_id": "37bd40a9-91d9-469f-8d38-4192e13b4ea9"
+        },
+        {
+            "guest": "rfgt",
+            "island": "Berghav",
+            "hotel": "STUUGA",
+            "arrival_date": "2024-01-11",
+            "departure_date": "2024-01-12",
+            "total_cost": "17",
+            "stars": "2",
+            "features": [
+                {
+                    "name": "kayak",
+                    "price": 5
+                }
+            ],
+            "addtional_info": "Thank you for choosing STUUGA",
+            "booking_id": "6b2fb3b7-cd11-4033-a7a5-aafb66d4d2a1"
+        },
+        {
+            "guest": "zxcvdf",
+            "island": "Berghav",
+            "hotel": "STUUGA",
+            "arrival_date": "2024-01-13",
+            "departure_date": "2024-01-14",
+            "total_cost": "17",
+            "stars": "2",
+            "features": [
+                {
+                    "name": "kayak",
+                    "price": 5
+                }
+            ],
+            "addtional_info": "Thank you for choosing STUUGA",
+            "booking_id": "e4180aee-cd2c-4894-a7a9-29951b48c5aa"
         }
     ]
 }

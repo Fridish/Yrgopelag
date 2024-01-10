@@ -23,6 +23,9 @@
         </div>
     </div>
 </div>
+<?php
+ob_end_flush();
+?>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="/assets/script.js"></script>
 

@@ -36,12 +36,19 @@ if (isset($_POST["submit"])) {
                 //if everything works, deposit the money to my account
                 depositMoney();
 
-                header('Location:/confirmation.php');
+                addLogbook();
+
+                header('location:/confirmation.php');
+                exit();
                 //if everything works, redirect to confirmation page with json of booking (using header?)
             }
         }
     } else {
-        echo "Please fill out all fields";
+?>
+        <script>
+            alert('Please fill out all fields');
+        </script>
+<?php
     }
 }
 function checkDates()
@@ -204,25 +211,28 @@ function addFeatureJson()
     return $features;
 }
 //insert the data into the json file
-if (isset($_POST['submit'])) {
+function addLogbook()
+{  //add the booking to the logbook
+    if (isset($_POST['submit'])) {
 
-    $name = htmlspecialchars($_POST['name'], ENT_QUOTES);
+        $name = htmlspecialchars($_POST['name'], ENT_QUOTES);
 
-    $vacation = [];
+        $vacation = [];
 
-    $vacation = json_decode(file_get_contents(__DIR__ . '/logbook.json'), true);
+        $vacation = json_decode(file_get_contents(__DIR__ . '/logbook.json'), true);
 
-    $vacation['vacation'][] = [
-        'guest' => $name,
-        'island' => 'Berghav',
-        'hotel' => 'STUUGA',
-        'arrival_date' => $_POST['arrival'],
-        'departure_date' => $_POST['departure'],
-        'total_cost' => $_POST['orderTotal'],
-        'stars' => '2',
-        'features' => addFeatureJson(),
-        'addtional_info' => "Thank you for choosing STUUGA",
-        'booking_id' => $_SESSION['bookingId'],
-    ];
-    file_put_contents(__DIR__ . '/logbook.json', json_encode($vacation, JSON_PRETTY_PRINT));
+        $vacation['vacation'][] = [
+            'guest' => $name,
+            'island' => 'Berghav',
+            'hotel' => 'STUUGA',
+            'arrival_date' => $_POST['arrival'],
+            'departure_date' => $_POST['departure'],
+            'total_cost' => $_POST['orderTotal'],
+            'stars' => '2',
+            'features' => addFeatureJson(),
+            'addtional_info' => "Thank you for choosing STUUGA",
+            'booking_id' => $_SESSION['bookingId'],
+        ];
+        file_put_contents(__DIR__ . '/logbook.json', json_encode($vacation, JSON_PRETTY_PRINT));
+    }
 }
