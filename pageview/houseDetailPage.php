@@ -1,4 +1,7 @@
 <!-- this is the header. the image will cover the background and text will be applied on top of it. -->
+<?php
+ob_start();
+?>
 <div class="houseHeaderContainer">
     <div class="houseHeaderBackground">
         <div class="swiper seasideSwiper">
@@ -93,4 +96,4 @@
         <h1 class="formHeaderBig">BOOK <?php echo $cabinName; ?> </h1>
         <h1 class="formHeaderSmall"> $<?php echo $price; ?>/night</h1>
     </div>
-    <form action="" method=" post">
+    <form action="" method="post">

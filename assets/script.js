@@ -26,19 +26,29 @@ let addArrival = document.getElementsByClassName('arrival');
 let addDeparture = document.getElementsByClassName('departure');
 let dropdownButton1 = document.getElementById('ddbtn1');
 let dropdownButton2 = document.getElementById('ddbtn2');
+let dropdownButton3 = document.getElementById('ddbtn3');
+
 let total = 0;
 let extrasTotal = 0;
 let totalNights = 0;
+let roomCost = 0;
 
 // extras //
-guide.addEventListener('click', addCost);
-mountainclimbing.addEventListener('click', addCost);
-fishing.addEventListener('click', addCost);
-kayak.addEventListener('click', addCost);
+if (document.getElementById('kayak') != null) {
+  kayak.addEventListener('change', addCost);
+  fishing.addEventListener('change', addCost);
+  guide.addEventListener('change', addCost);
+  mountainclimbing.addEventListener('change', addCost);
+}
 
 //dropdown//
-dropdownButton1.addEventListener('click', toggleVisibility);
-dropdownButton2.addEventListener('click', toggleVisibility);
+if (document.getElementById('ddbtn1') != null) {
+  dropdownButton1.addEventListener('click', toggleVisibility);
+  dropdownButton2.addEventListener('click', toggleVisibility);
+}
+if (document.getElementById('ddbtn3') != null) {
+  dropdownButton3.addEventListener('click', toggleVisibility);
+}
 
 //dates//
 for (let i = 0; i < addArrival.length; i++) {
@@ -67,9 +77,8 @@ function addArrivalDate() {
   let printArrivalDate = document.getElementsByClassName('arrivalDate');
   for (let i = 0; i < printArrivalDate.length; i++) {
     printArrivalDate[i].innerHTML = arrivalDateString;
-    document.getElementsByClassName('departureDate')[0].value =
-      Date(arrivalDateString);
   }
+  document.getElementById('arrivalPost').value = arrivalDateString;
   //if another button is clicked, make the previous one white again
   for (let i = 0; i < addArrival.length; i++) {
     if (addArrival[i] != this) {
@@ -94,9 +103,8 @@ function addDepartureDate() {
     let printDepartureDate = document.getElementsByClassName('departureDate');
     for (let i = 0; i < printDepartureDate.length; i++) {
       printDepartureDate[i].innerHTML = departureDateString;
-      document.getElementsByClassName('departureDate')[0].value =
-        Date(departureDateString);
     }
+    document.getElementById('departurePost').value = departureDateString;
     //if another button is clicked, make the previous one white again
     for (let i = 0; i < addDeparture.length; i++) {
       if (addDeparture[i] != this) {
@@ -118,7 +126,6 @@ function addTotalNights() {
   let departureDay = Number(departureDate.split('-')[2]);
   console.log(arrivalDay);
   console.log(departureDay);
-
   if (arrivalDay >= departureDay && departureDay != 0) {
     alert('Arrival date must be prior to departure date');
     return;
@@ -129,7 +136,18 @@ function addTotalNights() {
     } else {
       nights = departureDay - arrivalDay;
     }
-    totalNights = nights * 10;
+    let roomNumber = document.getElementsByClassName('invisible')[0];
+    if (roomNumber.innerHTML == 1) {
+      roomCost = 8;
+    } else if (roomNumber.innerHTML == 2) {
+      roomCost = 10;
+    } else if (roomNumber.innerHTML == 3) {
+      roomCost = 12;
+    } else {
+      roomCost = 0;
+    }
+
+    totalNights = nights * roomCost;
     console.log(totalNights);
     total = extrasTotal + totalNights;
     console.log(total);
@@ -146,7 +164,7 @@ function addTotalNights() {
       if (addDeparture[i] != this) {
         totalNights = 0;
         let nights = departureDay - arrivalDay;
-        totalNights += nights * 10;
+        totalNights += nights * roomCost;
         totalSpan.innerHTML = totalNights + extrasTotal;
         totalCost.value = totalSpan.innerHTML;
         totalSpan.dispatchEvent(new Event('change'));

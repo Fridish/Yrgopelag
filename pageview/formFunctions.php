@@ -9,8 +9,8 @@ require __DIR__ . '/calendarFunctions.php';
         <div class="datePicker">
             <p> FROM: </p>
             <div class="dropdownButton">
-                <span class="arrivalDate"> 2024-00-00</span>
-                <img src="/Media/arrowDown.svg" alt="arrow">
+                <input type="hidden" name="arrival" id="arrivalPost" value=""><span class="arrivalDate"> 2024-00-00</span>
+                <img src=" /Media/arrowDown.svg" alt="arrow">
             </div>
         </div>
         <div class="dropdownContent">
@@ -53,7 +53,7 @@ require __DIR__ . '/calendarFunctions.php';
         <div class="datePicker">
             <p> TO:</p>
             <div class="dropdownButton">
-                <span class="departureDate"> 2024-00-00</span>
+                <input type="hidden" id="departurePost" name="departure" value=""><span class="departureDate"> 2024-00-00</span>
                 <img src="/Media/arrowDown.svg" alt="arrow">
             </div>
         </div>
@@ -148,16 +148,16 @@ require __DIR__ . '/calendarFunctions.php';
         </div>
         <div>
             <p class="orderTotal">Order total: $<input type="hidden" id="orderTotal" name="orderTotal"> <span id="total" value="">0</span></p>
-            <input type="text" name="name" id="name" placeholder="Enter your full name here">
-            <input type="text" name="uuid" placeholder="Enter your transfer code here">
+            <input type="text" name="name" id="name" placeholder="Enter your full name here" autocomplete="off">
+            <input type="text" name="uuid" placeholder="Enter your transfer code here" autocomplete="off">
             <input type="hidden" name="roomNumber" id="roomNumber" value="<?php echo $roomNumber; ?>">
 
             <button type="submit" name="submit"> submit</button>
-            </form>
         </div>
     </div>
 </div>
 </div>
+</form>
 <div class="writeReview">
     <h1>HAVE YOU VISITED STUUGA BEFORE? FEEL FREE TO LEAVE US A REVIEW!</h1>
     <a>I WANT TO WRITE A REVIEW ></a>

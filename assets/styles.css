@@ -578,6 +578,8 @@ tbody {
   flex-direction: column;
   padding-bottom: 16px;
   background-color: #232529;
+  position: absolute;
+  bottom: 0;
 }
 .footer h3 {
   margin-top: 32px;
@@ -589,12 +591,14 @@ tbody {
 
 /* confirmation page */
 .confirmationMessage {
+  background-image: url(https://media4.giphy.com/media/kLr3lM7efeRbfXwtEM/giphy.gif?cid=ecf05e47f96ofomhtgsq1afaoaadqyrhz6ytu0sfb8eo963l&ep=v1_gifs_search&rid=giphy.gif&ct=g);
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin-top: 80px;
-  margin-bottom: 80px;
+  flex-direction: column;
+  height: 80vh;
+  padding-bottom: 80px;
   color: #ffffff;
 }
 .dropdown {
@@ -605,6 +609,7 @@ tbody {
   display: none;
   background-color: #17191f;
   min-width: 200px;
+  height: auto;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
   z-index: 1;
@@ -633,7 +638,8 @@ tbody {
   margin-bottom: 0px;
   padding-top: 10px;
 }
-.dropdownButton:hover {
+.dropdownButton:hover,
+#ddbtn3:hover {
   background-color: white;
   color: black;
   transition-duration: 0.2s;
@@ -647,4 +653,21 @@ img.dropdownButton:hover {
   display: flex;
   flex-direction: row;
   margin: 0px;
+}
+.invisible {
+  display: none;
+}
+#ddbtn3 {
+  height: auto;
+  width: 50%;
+  background-color: transparent;
+  cursor: pointer;
+}
+.ddContent {
+  padding-top: 16px;
+  width: 50%;
+  height: auto;
+  line-height: 120%;
+  background-color: #17191f;
+  color: white;
 }

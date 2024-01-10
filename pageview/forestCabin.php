@@ -7,7 +7,7 @@ $houseInfoText = "Tucked away in the heart of a lush forest, this cabin provides
 $roomNumber = 2;
 $cabinName = "FOREST CABIN";
 $cabinDiscription = "Secluded in a lush forest, this cabin invites tranquility with a cozy interior, fireplace, and a porch immersed in the soothing sounds of nature.";
-$price = 12;
+$price = 10;
 $slides = [
     "/Media/forestCabin.png",
     "/Media/forestSlideshow1.png",
@@ -23,5 +23,8 @@ require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/header.php';
 require __DIR__ . '/navbar.php';
 require __DIR__ . '/houseDetailPage.php';
+?>
+<p class=invisible><?php echo $roomNumber; ?></p>
+<?php
 require __DIR__ . '/formFunctions.php';
 require __DIR__ . '/footer.php';

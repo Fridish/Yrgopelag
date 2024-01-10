@@ -7,7 +7,7 @@ $houseInfoText = "Nestled on the rugged coastline, this charming seaside cabin i
 $roomNumber = 1;
 $cabinName = "SEASIDE CABIN";
 $cabinDiscription = "This cozy seaside cabin with panoramic ocean views and a crackling fireplace, offering timeless coastal charm.";
-$price = 10;
+$price = 8;
 $slides = [
     "/Media/seasideCabin.png",
     "/Media/seasideSlideshow1.png",
@@ -22,5 +22,8 @@ require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/header.php';
 require __DIR__ . '/navbar.php';
 require __DIR__ . '/houseDetailPage.php';
+?>
+<p class=invisible><?php echo $roomNumber; ?></p>
+<?php
 require __DIR__ . '/formFunctions.php';
 require __DIR__ . '/footer.php';

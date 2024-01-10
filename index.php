@@ -47,8 +47,8 @@ require __DIR__ . '/pageview/navbar.php';
         <div class="houseInnerWrapper">
             <div class="houseContainer">
                 <img class="indexHouseImg" src="Media/seasideCabin.png" alt="">
-                <h3>Basic Cabbin</h3>
-                <p> $5/night </p>
+                <h3>SEASIDE CABIN</h3>
+                <p> $8/night </p>
                 <p>2 stars</p>
                 <a href="/pageview/seasideCabin.php">
                     <img class="arrow" src="/Media/arrow.svg" alt="">
@@ -56,8 +56,8 @@ require __DIR__ . '/pageview/navbar.php';
             </div>
             <div class="houseContainer">
                 <img class="indexHouseImg" src="Media/forestCabin.png" alt="">
-                <h3>Basic Cabbin</h3>
-                <p> $5/night </p>
+                <h3>FOREST CABIN</h3>
+                <p> $10/night </p>
                 <p>2 stars</p>
                 <a href="/pageview/forestCabin.php">
                     <img class="arrow" src="/Media/arrow.svg" alt="">
@@ -65,8 +65,8 @@ require __DIR__ . '/pageview/navbar.php';
             </div>
             <div class="houseContainer">
                 <img class="indexHouseImg" src="Media/mountainCabin.png" alt="">
-                <h3>Basic Cabbin</h3>
-                <p> $5/night </p>
+                <h3>MOUNTAIN CABIN</h3>
+                <p> $12/night </p>
                 <p>2 stars</p>
                 <a href="/pageview/mountainCabin.php">
                     <img class="arrow" src="/Media/arrow.svg" alt="">
