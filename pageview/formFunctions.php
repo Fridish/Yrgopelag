@@ -146,13 +146,13 @@ require __DIR__ . '/calendarFunctions.php';
             <p>Price/night:</p>
             <p>Extras:</p>
         </div>
-        <div>
+        <div class="orderForm">
             <p class="orderTotal">Order total: $<input type="hidden" id="orderTotal" name="orderTotal"> <span id="total" value="">0</span></p>
             <input type="text" name="name" id="name" placeholder="Enter your full name here" autocomplete="off">
             <input type="text" name="uuid" placeholder="Enter your transfer code here" autocomplete="off">
             <input type="hidden" name="roomNumber" id="roomNumber" value="<?php echo $roomNumber; ?>">
 
-            <button type="submit" name="submit"> submit</button>
+            <button type="submit" name="submit"> BOOK ROOM</button>
         </div>
     </div>
 </div>
