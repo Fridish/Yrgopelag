@@ -137,12 +137,12 @@ function addTotalNights() {
       nights = departureDay - arrivalDay;
     }
     let roomNumber = document.getElementsByClassName('invisible')[0];
-    if (roomNumber.innerHTML == 1) {
-      roomCost = 8;
-    } else if (roomNumber.innerHTML == 2) {
-      roomCost = 10;
-    } else if (roomNumber.innerHTML == 3) {
-      roomCost = 12;
+    if (
+      roomNumber.innerHTML != '' ||
+      roomNumber.innerHTML != null ||
+      roomNumber.innerHTML != 0
+    ) {
+      roomCost = roomNumber.innerHTML;
     } else {
       roomCost = 0;
     }

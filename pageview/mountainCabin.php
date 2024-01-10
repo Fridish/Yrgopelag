@@ -16,14 +16,14 @@ $slides = [
     "/Media/mountainSlideshow4.png",
     "/Media/mountainSlideshow5.png"
 ];
-$stars = "/Media/2Stars.svg";
+$stars = 4;
 
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/header.php';
 require __DIR__ . '/navbar.php';
 require __DIR__ . '/houseDetailPage.php';
 ?>
-<p class=invisible><?php echo $roomNumber; ?></p>
+<p class=invisible><?php echo $price; ?></p>
 <?php
 require __DIR__ . '/formFunctions.php';
 require __DIR__ . '/footer.php';
