@@ -1,3 +1,4 @@
+//swiper for the house info page//
 document.addEventListener('DOMContentLoaded', (event) => {
   const seasideSwiper = new Swiper('.seasideSwiper', {
     slidesPerView: 1,
@@ -15,29 +16,39 @@ document.addEventListener('DOMContentLoaded', (event) => {
   });
 });
 
-/* extras -section*/
+// ---------------------------------------------------------------------//
+
 let kayak = document.getElementById('kayak');
 let fishing = document.getElementById('fishing');
 let guide = document.getElementById('guide');
 let mountainclimbing = document.getElementById('mountainclimbing');
-let addArrival = document.getElementsByClassName('arrival'); //Should these be class, not id?
+let addArrival = document.getElementsByClassName('arrival');
 let addDeparture = document.getElementsByClassName('departure');
 let dropdownButton1 = document.getElementById('ddbtn1');
 let dropdownButton2 = document.getElementById('ddbtn2');
+let total = 0;
+let extrasTotal = 0;
+let totalNights = 0;
 
+// extras //
 guide.addEventListener('click', addCost);
 mountainclimbing.addEventListener('click', addCost);
 fishing.addEventListener('click', addCost);
 kayak.addEventListener('click', addCost);
 
+//dropdown//
 dropdownButton1.addEventListener('click', toggleVisibility);
 dropdownButton2.addEventListener('click', toggleVisibility);
+
+//dates//
 for (let i = 0; i < addArrival.length; i++) {
-  addArrival[i].addEventListener('change', addTotalNights);
+  addArrival[i].addEventListener('click', addArrivalDate);
 }
 for (let i = 0; i < addDeparture.length; i++) {
-  addDeparture[i].addEventListener('change', addTotalNights);
+  addDeparture[i].addEventListener('click', addDepartureDate);
 }
+
+// ---------------------------------------------------------------------//
 
 //toggle visibility of dropdown menu//
 function toggleVisibility() {
@@ -48,14 +59,100 @@ function toggleVisibility() {
   }
 }
 
-let total = 0;
-let extrasTotal = 0;
-let totalNights = 0;
-for (let i = 0; i < addArrival.length; i++) {
-  addArrival[i].addEventListener('click', addArrivalDate);
+//choose arrival date
+function addArrivalDate() {
+  this.style.backgroundColor = 'blue';
+  let arrivalDate = this.innerHTML.trim().padStart(2, '0');
+  let arrivalDateString = '2024-01-' + arrivalDate;
+  let printArrivalDate = document.getElementsByClassName('arrivalDate');
+  for (let i = 0; i < printArrivalDate.length; i++) {
+    printArrivalDate[i].innerHTML = arrivalDateString;
+    document.getElementsByClassName('departureDate')[0].value =
+      Date(arrivalDateString);
+  }
+  //if another button is clicked, make the previous one white again
+  for (let i = 0; i < addArrival.length; i++) {
+    if (addArrival[i] != this) {
+      addArrival[i].style.backgroundColor = 'white';
+    }
+  }
+  addTotalNights();
 }
-for (let i = 0; i < addDeparture.length; i++) {
-  addDeparture[i].addEventListener('click', addDepartureDate);
+//choose departure date
+function addDepartureDate() {
+  let arrivalDateString =
+    document.getElementsByClassName('arrivalDate')[0].innerHTML;
+  let arrivalCompare = arrivalDateString.split('-')[2];
+  let departureDate = this.innerHTML.trim().padStart(2, '0');
+  let departureDateString = '2024-01-' + departureDate;
+  let departureCompare = departureDateString.split('-')[2];
+  if (departureCompare <= arrivalCompare) {
+    alert('Departure date must be after arrival date');
+    return;
+  } else {
+    this.style.backgroundColor = 'blue';
+    let printDepartureDate = document.getElementsByClassName('departureDate');
+    for (let i = 0; i < printDepartureDate.length; i++) {
+      printDepartureDate[i].innerHTML = departureDateString;
+      document.getElementsByClassName('departureDate')[0].value =
+        Date(departureDateString);
+    }
+    //if another button is clicked, make the previous one white again
+    for (let i = 0; i < addDeparture.length; i++) {
+      if (addDeparture[i] != this) {
+        addDeparture[i].style.backgroundColor = 'white';
+      }
+    }
+    // add total nights to the total cost
+    addTotalNights();
+  }
+}
+
+function addTotalNights() {
+  let arrivalDate = document.getElementsByClassName('arrivalDate')[0].innerHTML;
+  console.log(arrivalDate);
+  let departureDate =
+    document.getElementsByClassName('departureDate')[0].innerHTML;
+  console.log(departureDate);
+  let arrivalDay = Number(arrivalDate.split('-')[2]);
+  let departureDay = Number(departureDate.split('-')[2]);
+  console.log(arrivalDay);
+  console.log(departureDay);
+
+  if (arrivalDay >= departureDay && departureDay != 0) {
+    alert('Arrival date must be prior to departure date');
+    return;
+  } else {
+    if (arrivalDay < 1 || departureDay < 1) {
+      nights = 0;
+      return;
+    } else {
+      nights = departureDay - arrivalDay;
+    }
+    totalNights = nights * 10;
+    console.log(totalNights);
+    total = extrasTotal + totalNights;
+    console.log(total);
+    document.getElementById('total').innerHTML = total;
+    updateCost = parseInt(total);
+    document.getElementById('orderTotal').value = updateCost;
+    //Update total cost when extras or dates are added or removed //
+    document.getElementById('total').addEventListener('change', function () {
+      document.getElementById('orderTotal').value = this.innerHTML;
+    });
+    let totalSpan = document.getElementById('total');
+    let totalCost = document.getElementById('orderTotal');
+    for (let i = 0; i < addDeparture.length; i++) {
+      if (addDeparture[i] != this) {
+        totalNights = 0;
+        let nights = departureDay - arrivalDay;
+        totalNights += nights * 10;
+        totalSpan.innerHTML = totalNights + extrasTotal;
+        totalCost.value = totalSpan.innerHTML;
+        totalSpan.dispatchEvent(new Event('change'));
+      }
+    }
+  }
 }
 
 //add cost of extras to the total cost
@@ -71,113 +168,4 @@ function addCost() {
   }
   updateCost = document.getElementById('total').innerHTML = total;
   document.getElementById('orderTotal').value = updateCost;
-}
-
-//choose arrival date
-function addArrivalDate() {
-  this.style.backgroundColor = 'blue';
-  let arrivalDate = '2024-01-' + this.innerHTML;
-  document.getElementById('arrivalDate').innerHTML = arrivalDate;
-
-  //if another button is clicked, make the previous one white again
-  for (let i = 0; i < addArrival.length; i++) {
-    if (addArrival[i] != this) {
-      addArrival[i].style.backgroundColor = 'white';
-    }
-  }
-}
-function addTotalNights() {
-  let arrivalDate = document.getElementById('arrival').value;
-  let departureDate = document.getElementById('departure').value;
-  let arrivalDay = arrivalDate.split('-')[2];
-  if (arrivalDay < 10) {
-    arrivalDay = arrivalDay.split(0)[1];
-  }
-  let departureDay = departureDate.split('-')[2];
-  if (departureDay < 10) {
-    departureDay = departureDay.split(0)[1];
-  }
-  console.log(arrivalDay);
-  console.log(departureDay);
-  if (arrivalDate >= departureDate && departureDate != '') {
-    alert('Arrival date must be before departure date');
-  } else {
-    if (arrivalDate < 1 || departureDate < 1) {
-      nights = 0;
-    } else {
-      nights = departureDay - arrivalDay;
-    }
-    totalNights = nights * 10;
-    console.log(totalNights);
-    total = extrasTotal + totalNights;
-    console.log(total);
-    document.getElementById('total').innerHTML = total;
-    updateCost = parseInt(total);
-    document.getElementById('orderTotal').value = updateCost;
-  }
-}
-//choose departure date
-function addDepartureDate() {
-  let arrivalDateString = document.getElementById('arrivalDate').innerHTML;
-  let arrivalDate = new Date(arrivalDateString);
-  let day = this.innerHTML.trim().padStart(2, '0');
-  let departureDate = new Date('2024-01-' + day + 'T00:00:00Z');
-
-  if (departureDate <= arrivalDate) {
-    alert('Departure date must be after arrival date');
-    return;
-  } else {
-    this.style.backgroundColor = 'blue';
-    document.getElementById('departureDate').innerHTML = departureDate
-      .toISOString()
-      .split('T')[0];
-
-    //if another button is clicked, make the previous one white again
-    for (let i = 0; i < addDeparture.length; i++) {
-      if (addDeparture[i] != this) {
-        addDeparture[i].style.backgroundColor = 'white';
-      }
-    }
-    // add total nights to the total cost
-    let nights = day - arrivalDateString.split('-')[2];
-    total += nights * 10;
-    document.getElementById('total').innerHTML = total;
-    for (let i = 0; i < addDeparture.length; i++) {
-      if (addDeparture[i] != this) {
-        total = 0;
-        let nights = day - arrivalDateString.split('-')[2];
-        total += nights * 10;
-        document.getElementById('total').innerHTML = total;
-      }
-    }
-  }
-}
-
-//Visa Bara Januari
-$('#htmlArrival').datepicker({
-  beforeShowDay: function (date) {
-    return [date.getMonth() == 0]; // show only January
-  },
-});
-
-$('#htmlDeparture').datepicker({
-  beforeShowDay: function (date) {
-    return [date.getMonth() == 0]; // show only January
-  },
-});
-
-document.getElementById('total').addEventListener('change', function () {
-  document.getElementById('orderTotal').value = this.innerHTML;
-});
-let totalSpan = document.getElementById('total');
-let totalCost = document.getElementById('orderTotal');
-for (let i = 0; i < addDeparture.length; i++) {
-  if (addDeparture[i] != this) {
-    total = 0;
-    let nights = day - arrivalDateString.split('-')[2];
-    total += nights * 10;
-    totalSpan.innerHTML = total;
-    totalCost.value = totalSpan.innerHTML;
-    totalSpan.dispatchEvent(new Event('change'));
-  }
 }
