@@ -3,11 +3,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const seasideSwiper = new Swiper('.seasideSwiper', {
     slidesPerView: 1,
     loop: true,
+    effect: 'fade',
     autoplay: {
       delay: 3000,
     },
     pagination: {
       el: '.swiper-pagination',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+  const reviewSwiper = new Swiper('.reviewSwiper', {
+    slidesPerView: 1,
+    loop: true,
+    autoplay: {
+      delay: 3000,
     },
     navigation: {
       nextEl: '.swiper-button-next',
@@ -71,7 +83,7 @@ function toggleVisibility() {
 
 //choose arrival date
 function addArrivalDate() {
-  this.style.backgroundColor = 'blue';
+  this.style.backgroundColor = '#79DCF2';
   let arrivalDate = this.innerHTML.trim().padStart(2, '0');
   let arrivalDateString = '2024-01-' + arrivalDate;
   let printArrivalDate = document.getElementsByClassName('arrivalDate');
@@ -99,7 +111,7 @@ function addDepartureDate() {
     alert('Departure date must be after arrival date');
     return;
   } else {
-    this.style.backgroundColor = 'blue';
+    this.style.backgroundColor = '#79DCF2';
     let printDepartureDate = document.getElementsByClassName('departureDate');
     for (let i = 0; i < printDepartureDate.length; i++) {
       printDepartureDate[i].innerHTML = departureDateString;
@@ -138,15 +150,14 @@ function addTotalNights() {
     }
     let roomNumber = document.getElementsByClassName('invisible')[0];
     if (
-      roomNumber.innerHTML != '' ||
-      roomNumber.innerHTML != null ||
+      roomNumber.innerHTML != '' &&
+      roomNumber.innerHTML != null &&
       roomNumber.innerHTML != 0
     ) {
-      roomCost = roomNumber.innerHTML;
+      roomCost = Number(roomNumber.innerHTML);
     } else {
       roomCost = 0;
     }
-
     totalNights = nights * roomCost;
     console.log(totalNights);
     total = extrasTotal + totalNights;

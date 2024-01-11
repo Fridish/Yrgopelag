@@ -1,0 +1,35 @@
+/* footer styles */
+.footerContainer {
+  display: flex;
+  justify-content: center;
+}
+.footerElements {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 70%;
+  height: 100%;
+  margin-top: 16px;
+  margin-bottom: 60px;
+}
+.footerHeader > h1 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.footer {
+  display: flex;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  padding-bottom: 16px;
+  background-color: #232529;
+}
+.footer h3 {
+  margin-top: 32px;
+}
+.footerLegal {
+  display: flex;
+  justify-content: center;
+}

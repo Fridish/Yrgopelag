@@ -10,7 +10,7 @@ require __DIR__ . '/calendarFunctions.php';
             <p> FROM: </p>
             <div class="dropdownButton">
                 <input type="hidden" name="arrival" id="arrivalPost" value=""><span class="arrivalDate"> 2024-00-00</span>
-                <img src=" /Media/arrowDown.svg" alt="arrow">
+                <img src="/Media/arrowDown.svg" alt="arrow">
             </div>
         </div>
         <div class="dropdownContent">
@@ -67,7 +67,6 @@ require __DIR__ . '/calendarFunctions.php';
                     <p>Januari 2024</p>
                 </div>
                 <div class="calendarWrapper">
-
                     <table class="calendar">
                         <tbody>
                             <?php foreach ($calendar2->getWeek() as $week) : ?>
@@ -96,7 +95,7 @@ require __DIR__ . '/calendarFunctions.php';
     </div>
 </div>
 
-<div class="formHeaderBig">EXTRAS</div>
+<div class="formDetailHeader">EXTRAS</div>
 <div class="extrasCardContainer">
     <div class="extrasWrapper">
         <img src="/Media/kayak.png" alt="kayaking">
@@ -105,7 +104,7 @@ require __DIR__ . '/calendarFunctions.php';
                 <input type="checkbox" id="kayak" name="extras[kayak]" name="kayak" value=5>
                 <span class="checkmark"></span>
             </label>
-            <p class="extrasInfo">Unlock the thrill of the sea with our kayak borrowing service and immerse yourself in the tranquility of paddling as you explore the beauty of nature from a unique and unforgettable perspective.</p>
+            <p class="extrasInfo"></p>
         </div>
     </div>
     <div class="extrasWrapper">
@@ -115,7 +114,7 @@ require __DIR__ . '/calendarFunctions.php';
                 <input type="checkbox" id="fishing" name="extras[fishing]" name="fishing" value=3>
                 <span class="checkmark"></span>
             </label>
-            <p class="extrasInfo">Embark on a natural escape with high-quality equipment for a serene angling experience. Reel in the peaceful surroundings and create unforgettable moments by the water's edge.</p>
+            <p class="extrasInfo"></p>
         </div>
     </div>
     <div class="extrasWrapper">
@@ -125,7 +124,7 @@ require __DIR__ . '/calendarFunctions.php';
                 <input type="checkbox" id="mountainclimbing" name="extras[mountainclimbing]" name="mountainclimbing" value=5>
                 <span class="checkmark"></span>
             </label>
-            <p class="extrasInfo"> Conquer heights, push your limits, and turn your mountain climb into a captivating event in the heart of nature.</p>
+            <p class="extrasInfo"></p>
         </div>
     </div>
     <div class="extrasWrapper">
@@ -135,30 +134,19 @@ require __DIR__ . '/calendarFunctions.php';
                 <input type="checkbox" id="guide" name="extras[guide]" name="guide" value=5>
                 <span class="checkmark"></span>
             </label>
-            <p class="extrasInfo">The warmth of our meticulously crafted cedar saunas meets the serenity of nature. Unwind, detoxify, and rejuvenate in this tranquil setting, turning your sauna session into a blissful escape amid the soothing embrace of the natural environment.</p>
+            <p class="extrasInfo"></p>
         </div>
     </div>
 </div>
 <div class="orderDetails">
-    <h1 class="formHeaderBig">ORDER DETAILS</h1>
-    <div class="orderDetailsWrapper">
-        <div>
-            <p>Price/night:</p>
-            <p>Extras:</p>
-        </div>
-        <div class="orderForm">
-            <p class="orderTotal">Order total: $<input type="hidden" id="orderTotal" name="orderTotal"> <span id="total" value="">0</span></p>
-            <input type="text" name="name" id="name" placeholder="Enter your full name here" autocomplete="off">
-            <input type="text" name="uuid" placeholder="Enter your transfer code here" autocomplete="off">
-            <input type="hidden" name="roomNumber" id="roomNumber" value="<?php echo $roomNumber; ?>">
+    <div class="orderForm">
+        <p class="orderTotal">Order total: $<input type="hidden" id="orderTotal" name="orderTotal"> <span id="total" value="">0</span></p>
+        <input type="text" name="name" id="name" placeholder="Enter your full name here" autocomplete="off">
+        <input type="text" name="uuid" placeholder="Enter your transfer code here" autocomplete="off">
+        <input type="hidden" name="roomNumber" id="roomNumber" value="<?php echo $roomNumber; ?>">
 
-            <button type="submit" name="submit"> BOOK ROOM</button>
-        </div>
+        <button type="submit" id="submit" name="submit"> BOOK ROOM</button>
     </div>
 </div>
 </div>
 </form>
-<div class="writeReview">
-    <h1>HAVE YOU VISITED STUUGA BEFORE? FEEL FREE TO LEAVE US A REVIEW!</h1>
-    <a>I WANT TO WRITE A REVIEW ></a>
-</div>

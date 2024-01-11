@@ -1,0 +1,37 @@
+/* nav */
+.navSvg {
+  width: 60px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+.navContainer {
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: auto;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.navElements div {
+  margin-top: 16px;
+  margin-bottom: 0px;
+}
+.navElements {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  justify-content: space-evenly;
+  border-bottom: 2px solid #ffffff;
+}
+.navContainer > div > h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+}

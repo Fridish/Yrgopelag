@@ -1,0 +1,49 @@
+.reviewsContainer {
+  width: 100%;
+  height: auto;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+.reviewsWrapper {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  max-width: 100%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+.reviewSwiperContainer {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.reviewSwiperContainer > div {
+  justify-content: flex-start;
+}
+.reviewsWrapper > img {
+  width: 400px;
+  height: auto;
+  object-fit: cover;
+}
+.reviewSwiper {
+  width: 100%;
+  height: 100%;
+}
+.reviewSlides {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.reviewSlides > p {
+  margin-top: 50%;
+}
+.reviewsContainer > h1 {
+  font-size: 30px;
+}
+.reviewsContainer > p {
+  font-size: 16px;
+}
