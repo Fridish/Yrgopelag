@@ -1,3 +1,7 @@
+<?php
+
+declare(strict_types=1);
+?>
 <div class="footer">
     <h3>STUUGA</h3>
     <div class="footerLegal">
@@ -27,7 +31,7 @@
 ob_end_flush();
 ?>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script src="/assets/script.js"></script>
+<script src="/assets/scripts/script.js"></script>
 
 </body>
 

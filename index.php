@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/pageview/header.php';
-require __DIR__ . '/hotelFunctions.php';
+require __DIR__ . '/functions/hotelFunctions.php';
 require __DIR__ . '/pageview/navbar.php';
 
 function getPrice($filename, $variableName)
 {
-    $file = file_get_contents(__DIR__ . '/pageview/' . $filename . '.php');
+    $file = file_get_contents(__DIR__ . '/' . $filename . '.php');
     $variableName = "price";
     $search = '/\$' . preg_quote($variableName) . '\s*=\s*(\d+);/';
     if (preg_match($search, $file, $matches)) {
@@ -22,7 +22,7 @@ $mountainPrice = getPrice('mountainCabin', 'price');
 $forestPrice = getPrice('forestCabin', 'price');
 function getStars($filename, $variableName)
 {
-    $file = file_get_contents(__DIR__ . '/pageview/' . $filename . '.php');
+    $file = file_get_contents(__DIR__ . '/' . $filename . '.php');
     $variableName = "stars";
     $search = '/\$' . preg_quote($variableName) . '\s*=\s*(\d+);/';
     if (preg_match($search, $file, $matches)) {
@@ -69,7 +69,7 @@ $forestStars = getStars('forestCabin', 'stars');
                 <h3>SEASIDE CABIN</h3>
                 <p> $<?php echo $seasidePrice; ?>/night </p>
                 <p><?php echo $seasideStars; ?> stars</p>
-                <a href="/pageview/seasideCabin.php">
+                <a href="/seasideCabin.php">
                     <img class="arrow" src="/Media/arrow.svg" alt="">
                 </a>
             </div>
@@ -78,7 +78,7 @@ $forestStars = getStars('forestCabin', 'stars');
                 <h3>FOREST CABIN</h3>
                 <p> $<?php echo $forestPrice ?>/night </p>
                 <p><?php echo $forestStars; ?> stars</p>
-                <a href="/pageview/forestCabin.php">
+                <a href="/forestCabin.php">
                     <img class="arrow" src="/Media/arrow.svg" alt="">
                 </a>
             </div>
@@ -87,7 +87,7 @@ $forestStars = getStars('forestCabin', 'stars');
                 <h3>MOUNTAIN CABIN</h3>
                 <p> $<?php echo $mountainPrice ?>/night </p>
                 <p><?php echo $mountainStars; ?> stars</p>
-                <a href="/pageview/mountainCabin.php">
+                <a href="/mountainCabin.php">
                     <img class="arrow" src="/Media/arrow.svg" alt="">
                 </a>
             </div>
@@ -139,23 +139,24 @@ $forestStars = getStars('forestCabin', 'stars');
                     <div class="swiper-wrapper SwiperReviewWrapper">
                         <!-- Slides -->
                         <div class="swiper-slide reviewSlide">
-                            <p>Had an amazing time at the mountain cabbin. The views of the island were incredible, and the beds were very comfortable. The staff was attentive, and the Nordic cuisine added a delicious touch to the experience. Definitely a great spot for a peaceful mountain retreat.</p>
-                            <p>- Carla Jobber</p>
+                            <div>
+                                <p class="reviewSlideP">Had an amazing time at the mountain cabbin. The views of the island were incredible, and the beds were very comfortable. The staff was attentive, and the Nordic cuisine added a delicious touch to the experience. Definitely a great spot for a peaceful mountain retreat.</p>
+                                <p class="reviewSlideP">- Carla Jobber</p>
+                            </div>
                         </div>
                         <div class="swiper-slide reviewSlide">
-                            <p>
+                            <p class="reviewSlideP">
                                 Found this gem of a mountain hotel on a Nordic island, what a pleasant surprise! The views were breathtaking, and the rooms were comfy and chic. The staff was friendly, and the Nordic cuisine was a tasty treat. Highly recommend for a relaxing mountain escape.
                             </p>
-                            <p>- John Deer</p>
+                            <p class="reviewSlideP">- John Deer</p>
                         </div>
                         <div class="swiper-slide reviewSlide">
-                            <p>Stayed at a charming island with cozy rooms and friendly staff. The kayaking experience around the island's shores was a thrilling highlight, blending adventure with the comforts of a delightful stay.</p>
-                            <p>- Sarah Ohara</p>
+                            <p class="reviewSlideP">Stayed at a charming island with cozy rooms and friendly staff. The kayaking experience around the island's shores was a thrilling highlight, blending adventure with the comforts of a delightful stay.</p>
+                            <p class="reviewSlideP">- Sarah Ohara</p>
                         </div>
                     </div>
+                    <div class="swiper-button-next"></div>
                 </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
             </div>
         </div>
         <img src="/Media/reviewImg.png" alt="our vacation resort">

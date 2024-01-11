@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 session_start();
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/hotelFunctions.php';
 
 
@@ -22,4 +22,4 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         echo "Wrong username or password";
     }
 }
-header("Location: /signIn.php");
+header("Location: /../signIn.php");

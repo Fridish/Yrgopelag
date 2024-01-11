@@ -1,12 +1,12 @@
 <?php
 
 declare(strict_types=1);
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 $dbName = "yrgopelag.db";
 
 function connect(string $dbName): object
 {
-    $dbPath = __DIR__ . '/' . $dbName;
+    $dbPath = __DIR__ . '/../' . $dbName;
     $db = "sqlite:$dbPath";
 
     // Open the database file and catch the exception if it fails.
@@ -38,7 +38,7 @@ if (isset($_POST["submit"])) {
 
                 addLogbook();
 
-                header('location:/confirmation.php');
+                header('location:/../confirmation.php');
                 exit();
                 //if everything works, redirect to confirmation page with json of booking (using header?)
             }
@@ -48,7 +48,7 @@ if (isset($_POST["submit"])) {
         <script>
             alert('Please fill out all fields');
         </script>
-<?php
+    <?php
     }
 }
 function checkDates()
@@ -58,7 +58,11 @@ function checkDates()
     $arrival = $_POST['arrival'];
     $departure = $_POST['departure'];
     if ($_POST['arrival'] > $_POST['departure']) {
-        echo 'Please choose a valid date';
+    ?>
+        <script>
+            alert('Please choose a valid date');
+        </script>
+        <?php
         return false;
     } else {
         $db = connect($dbName);
@@ -69,7 +73,11 @@ function checkDates()
         $statement->execute();
         $bookings = $statement->fetchAll();
         if (count($bookings) > 0) {
-            print_r('Please choose a date that hasn\'t already been booked');
+        ?>
+            <script>
+                alert('Please choose a date that has not already been booked');
+            </script>
+        <?php
             return false;
         } else {
             return true;
@@ -81,7 +89,11 @@ function checkDates()
 function checkUuid()
 {
     if (isValidUuid($_POST['uuid']) == false) {
-        echo 'please enter a valid transfercode';
+        ?>
+        <script>
+            alert('Please enter a valid transfer code');
+        </script>
+<?php
         return false;
     } else {
         //use guzzle to check transferCode 
@@ -219,7 +231,7 @@ function addLogbook()
 
         $vacation = [];
 
-        $vacation = json_decode(file_get_contents(__DIR__ . '/logbook.json'), true);
+        $vacation = json_decode(file_get_contents(__DIR__ . '/../logbook.json'), true);
 
         $vacation['vacation'][] = [
             'guest' => $name,
@@ -233,6 +245,6 @@ function addLogbook()
             'addtional_info' => "Thank you for choosing STUUGA",
             'booking_id' => $_SESSION['bookingId'],
         ];
-        file_put_contents(__DIR__ . '/logbook.json', json_encode($vacation, JSON_PRETTY_PRINT));
+        file_put_contents(__DIR__ . '/../logbook.json', json_encode($vacation, JSON_PRETTY_PRINT));
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 $houseInfoText = "Nestled in the solitude of mountain peaks and surrounded by towering pines, this cabin is a rustic haven offering a perfect blend of charm and comfort. Inside, a cozy living space features a crackling fireplace and large windows framing panoramic views, while outside, an expansive deck provides an ideal spot to savor the crisp mountain air. Whether you're exploring nearby trails or simply unwinding in the tranquility of nature, this mountain cabin is a retreat designed for unforgettable moments amid the beauty of the wilderness.";
 $roomNumber = 3;
@@ -18,12 +18,11 @@ $slides = [
 ];
 $stars = 4;
 
-require __DIR__ . '/../vendor/autoload.php';
-require __DIR__ . '/header.php';
-require __DIR__ . '/navbar.php';
-require __DIR__ . '/houseDetailPage.php';
+require __DIR__ . '/pageview/header.php';
+require __DIR__ . '/pageview/navbar.php';
+require __DIR__ . '/pageview/houseDetailPage.php';
 ?>
 <p class=invisible><?php echo $price; ?></p>
 <?php
-require __DIR__ . '/formFunctions.php';
-require __DIR__ . '/footer.php';
+require __DIR__ . '/pageview/form.php';
+require __DIR__ . '/pageview/footer.php';
