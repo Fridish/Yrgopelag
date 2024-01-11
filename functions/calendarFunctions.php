@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 class Calendar extends DateTime
 {
     protected $year = 2024;

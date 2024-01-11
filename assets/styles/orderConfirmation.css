@@ -1,0 +1,54 @@
+.confirmationContainer {
+  background-image: url(https://media4.giphy.com/media/kLr3lM7efeRbfXwtEM/giphy.gif?cid=ecf05e47f96ofomhtgsq1afaoaadqyrhz6ytu0sfb8eo963l&ep=v1_gifs_search&rid=giphy.gif&ct=g);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 90vh;
+  width: 100%;
+}
+
+.confirmationMessage {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Add this line */
+  flex-direction: column;
+  text-align: center;
+  color: #ffffff;
+}
+.ddContainer h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+#ddbtn3 {
+  height: 40px;
+  width: 100%;
+  background-color: transparent;
+  cursor: pointer;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+#ddbtn3:hover,
+#ddbtn3:focus {
+  background-color: #232529;
+}
+.ddbtnTxt::after {
+  content: url(/Media/arrowDown.svg);
+}
+.ddContent {
+  display: none;
+  padding-top: 16px;
+  width: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: auto;
+  line-height: 120%;
+  background-color: #17191f;
+  color: white;
+  z-index: 1;
+}
+.active {
+  display: block;
+}

@@ -1,5 +1,6 @@
-<!-- this is the header. the image will cover the background and text will be applied on top of it. -->
 <?php
+
+declare(strict_types=1);
 ob_start();
 ?>
 <div class="houseHeaderContainer">

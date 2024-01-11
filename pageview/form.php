@@ -1,7 +1,12 @@
 <?php
+
+declare(strict_types=1);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 require __DIR__ . '/../vendor/autoload.php';
-require __DIR__ . '/../hotelFunctions.php';
-require __DIR__ . '/calendarFunctions.php';
+require __DIR__ . '/../functions/hotelFunctions.php';
+require __DIR__ . '/../functions/calendarFunctions.php';
 ?>
 
 <div class="dateWrapper">
@@ -13,6 +18,7 @@ require __DIR__ . '/calendarFunctions.php';
                 <img src="/Media/arrowDown.svg" alt="arrow">
             </div>
         </div>
+
         <div class="dropdownContent">
             <div class="calendarContainer">
                 <div id="calendarHeader">
@@ -28,7 +34,7 @@ require __DIR__ . '/calendarFunctions.php';
                             <?php foreach ($calendar->getWeek() as $week) : ?>
                                 <tr>
                                     <?php foreach ($week as $day) :
-                                        $date = "2024-01-" . str_pad($day, 2, "0", STR_PAD_LEFT); //för att få rätt format på datumet
+                                        $date = "2024-01-" . str_pad((string) $day, 2, "0", STR_PAD_LEFT); //för att få rätt format på datumet
                                         $db = connect($dbName);
                                         $statement = $db->prepare("select * from bookings where (arrival = :date or departure = :date or :date between arrival and departure )and room_number = :roomNumber");
 
@@ -72,7 +78,7 @@ require __DIR__ . '/calendarFunctions.php';
                             <?php foreach ($calendar2->getWeek() as $week) : ?>
                                 <tr>
                                     <?php foreach ($week as $day) :
-                                        $date = "2024-01-" . str_pad($day, 2, "0", STR_PAD_LEFT); //för att få rätt format på datumet
+                                        $date = "2024-01-" . str_pad((string)$day, 2, "0", STR_PAD_LEFT); //för att få rätt format på datumet
                                         $db = connect($dbName);
                                         $statement = $db->prepare("select * from bookings where (arrival = :date or departure = :date or :date between arrival and departure )and room_number = :roomNumber");
 
@@ -120,7 +126,7 @@ require __DIR__ . '/calendarFunctions.php';
     <div class="extrasWrapper">
         <img src="/Media/hike.png" alt="kayaking">
         <div class="extrasInfoContainer">
-            <label class="container">MOUNTAIN CLIMBING WITH GUIDE $6
+            <label class="container">MOUNTAIN CLIMBING WITH GUIDE $5
                 <input type="checkbox" id="mountainclimbing" name="extras[mountainclimbing]" name="mountainclimbing" value=5>
                 <span class="checkmark"></span>
             </label>
@@ -131,7 +137,7 @@ require __DIR__ . '/calendarFunctions.php';
         <img src="/Media/sauna.png" alt="kayaking">
         <div class="extrasInfoContainer">
             <label class="container">SAUNA $3
-                <input type="checkbox" id="guide" name="extras[guide]" name="guide" value=5>
+                <input type="checkbox" id="guide" name="extras[guide]" name="guide" value=3>
                 <span class="checkmark"></span>
             </label>
             <p class="extrasInfo"></p>
