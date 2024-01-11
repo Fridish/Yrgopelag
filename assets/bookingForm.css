@@ -1,0 +1,123 @@
+/* form styling */
+.bookingFormWrapper {
+  background-color: #232529;
+  padding-top: 32px;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+.bookingFormWrapper > * {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.formHeaderBig {
+  margin-top: 32px;
+  margin-bottom: 32px;
+  font-size: 30px;
+}
+.formHeaderSmall {
+  color: #beb0b0;
+  font-size: 20px;
+  margin-top: 0px;
+}
+.dateWrapper {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  height: 80px;
+  margin-bottom: 10px;
+}
+.datePicker {
+  font-size: 20px;
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+.extrasWrapper {
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+  width: auto;
+  height: auto;
+  height: 100px;
+  color: #17191f;
+}
+.extrasCardContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: aut0;
+  height: 100%;
+  gap: 16px;
+}
+.extrasInfoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.extrasInfoContainer > p {
+  font-size: 14px;
+}
+.orderDetails {
+  padding-bottom: 32px;
+}
+.orderTotal {
+  font-size: 30px;
+  margin-bottom: 16px;
+}
+
+.formDetailHeader {
+  font-size: 20px;
+  margin-bottom: 16px;
+  margin-top: 40px;
+}
+.orderDetailsWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  margin-bottom: 32px;
+  background-color: #232529;
+}
+.orderForm > input {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 16px;
+  border: none;
+  border-bottom: 2px solid #ffffff;
+}
+.orderForm {
+  margin-right: 45%;
+}
+.orderForm > button {
+  background-color: transparent;
+  border: none;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  margin-top: 16px;
+  width: 200px;
+  height: 40px;
+  cursor: pointer;
+}
+.orderForm > input {
+  font-size: 20px;
+  padding-left: 16px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+.extras {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: 200px;
+}
+.bookingFormWrapper {
+  margin-bottom: 80px;
+}
+.invisible {
+  display: none;
+}
+/* confirmation page */

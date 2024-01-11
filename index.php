@@ -58,17 +58,9 @@ $forestStars = getStars('forestCabin', 'stars');
     </div>
 </div>
 </div>
-<div class="sceneryContainer">
-    <h1>DISCOVER THE ISLAND AND THE OCEAN</h1>
-    <div class="sceneryImages">
-        <img src="/Media/scenery1.png" alt="">
-        <img src="/Media/scenery2.png" alt="">
-        <img src="/Media/scenery3.png" alt="">
-    </div>
-</div>
 <div class="houseWrapper">
     <div class="houseWrapperH1">
-        <h1>OUR CABINS</h1>
+        <h1>CABINS</h1>
     </div>
     <div class="houseOuterContainer">
         <div class="houseInnerWrapper">
@@ -85,8 +77,9 @@ $forestStars = getStars('forestCabin', 'stars');
                 <img class="indexHouseImg" src="Media/forestCabin.png" alt="">
                 <h3>FOREST CABIN</h3>
                 <p> $<?php echo $forestPrice ?>/night </p>
-                <p><?php echo $forestStars; ?> stars</p <a href="/pageview/forestCabin.php">
-                <img class="arrow" src="/Media/arrow.svg" alt="">
+                <p><?php echo $forestStars; ?> stars</p>
+                <a href="/pageview/forestCabin.php">
+                    <img class="arrow" src="/Media/arrow.svg" alt="">
                 </a>
             </div>
             <div class="houseContainer">
@@ -100,10 +93,73 @@ $forestStars = getStars('forestCabin', 'stars');
             </div>
         </div>
     </div>
+</div class="offerContainer">
+<div class="offerDetailsWrapper">
+    <div class="offerDetails">
+        <h1>% CURRENT OFFERS %</h1>
+        <p>Right now you get a $2 price reduction if you stay more than 2 nights, neat, huh? Discount is applied instantly. </p>
+    </div>
+    <div>
+        <img src="/Media/offerImg.png" alt="">
+    </div>
+</div>
+</div>
+<div class="eventsWrapper">
+    <div class="eventsWrapperHeader">
+        <h1>EVENTS</h1>
+    </div>
+    <div class="eventsContainer">
+        <div class="eventBox">
+            <img src="/Media/kayak.png" alt="">
+            <p>Kayaking</p>
+        </div>
+        <div class="eventBox">
+            <img src="/Media/fishing.png" alt="">
+            <p>Borrow fishing gear</p>
+        </div>
+        <div class="eventBox">
+            <img src="/Media/hike.png" alt="">
+            <p>Mountain climbing</p>
+        </div>
+        <div class="eventBox">
+            <img src="/Media/sauna.png" alt="">
+            <p>Access to sauna</p>
+        </div>
+    </div>
+    <div class="eventsWrapperButton">
+        <a href="/events.php"><button>READ MORE</button></a>
+    </div>
 </div>
 <div class="reviewsContainer">
-    <h1> OUR REVIEWS</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa itaque, voluptate, magni illo nostrum modi iste dolore exercitationem optio voluptatum corporis saepe corrupti ut in natus rerum adipisci consectetur sapiente!</p>
+    <div class="reviewsWrapper">
+        <div class="reviewSwiperContainer">
+            <h1> WHAT OUR CUSTOMERS SAY</h1>
+            <div>
+                <div class="swiper reviewSwiper">
+                    <div class="swiper-wrapper SwiperReviewWrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide reviewSlide">
+                            <p>Had an amazing time at the mountain cabbin. The views of the island were incredible, and the beds were very comfortable. The staff was attentive, and the Nordic cuisine added a delicious touch to the experience. Definitely a great spot for a peaceful mountain retreat.</p>
+                            <p>- Carla Jobber</p>
+                        </div>
+                        <div class="swiper-slide reviewSlide">
+                            <p>
+                                Found this gem of a mountain hotel on a Nordic island, what a pleasant surprise! The views were breathtaking, and the rooms were comfy and chic. The staff was friendly, and the Nordic cuisine was a tasty treat. Highly recommend for a relaxing mountain escape.
+                            </p>
+                            <p>- John Deer</p>
+                        </div>
+                        <div class="swiper-slide reviewSlide">
+                            <p>Stayed at a charming island with cozy rooms and friendly staff. The kayaking experience around the island's shores was a thrilling highlight, blending adventure with the comforts of a delightful stay.</p>
+                            <p>- Sarah Ohara</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+        <img src="/Media/reviewImg.png" alt="our vacation resort">
+    </div>
 </div>
 <?php
 

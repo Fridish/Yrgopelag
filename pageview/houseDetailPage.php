@@ -15,6 +15,9 @@ ob_start();
                 }
                 ?>
             </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
         <div class="houseHeaderOverlay">
             <div class="houseTextWrap">
@@ -22,7 +25,7 @@ ob_start();
                 <p> <?php echo $cabinDiscription; ?> </p>
             </div>
             <div class="houseStarButton">
-                <img src=<?php echo $stars; ?> alt="rating of house is 2 stars">
+                <img class="star" src="/Media/star.svg" alt="rating of house is 2 stars"> <span> <?php echo $stars; ?> </span>
                 <button>BOOK NOW</button>
             </div>
         </div>
@@ -82,18 +85,12 @@ ob_start();
             <a href="">More information about our events ></a>
         </div>
     </div>
-
-    <!-- image slideshow -->
-
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
 </div>
 
 <!-- booking form -->
 <div class="bookingFormWrapper">
     <div class="bookingFormContainer">
         <h1 class="formHeaderBig">BOOK <?php echo $cabinName; ?> </h1>
-        <h1 class="formHeaderSmall"> $<?php echo $price; ?>/night</h1>
+        <h1 class="formHeaderSmall">$<?php echo $price; ?>/night</h1> <span class="invisible"> <?php echo $price; ?> </span>
     </div>
     <form action="" method="post">
