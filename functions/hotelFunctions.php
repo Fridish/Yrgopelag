@@ -231,7 +231,7 @@ function addLogbook()
 
         $vacation = [];
 
-        $vacation = json_decode(file_get_contents(__DIR__ . '/../logbook.json'), true);
+        $vacation = json_decode(file_get_contents(__DIR__ . '/../hotelLogbook.json'), true);
 
         $vacation['vacation'][] = [
             'guest' => $name,
@@ -240,11 +240,11 @@ function addLogbook()
             'arrival_date' => $_POST['arrival'],
             'departure_date' => $_POST['departure'],
             'total_cost' => $_POST['orderTotal'],
-            'stars' => '2',
+            'stars' => '3',
             'features' => addFeatureJson(),
             'addtional_info' => "Thank you for choosing STUUGA",
             'booking_id' => $_SESSION['bookingId'],
         ];
-        file_put_contents(__DIR__ . '/../logbook.json', json_encode($vacation, JSON_PRETTY_PRINT));
+        file_put_contents(__DIR__ . '/../hotelLogbook.json', json_encode($vacation, JSON_PRETTY_PRINT));
     }
 }

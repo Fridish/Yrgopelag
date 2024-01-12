@@ -32,6 +32,7 @@ ob_end_flush();
 ?>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="/assets/scripts/script.js"></script>
+<script src="/assets/scripts/swiper.js"></script>
 
 </body>
 
