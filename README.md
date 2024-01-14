@@ -18,7 +18,9 @@ If your project requires some installation or similar, please inform your user '
 
 # Code review
 
-1. example.js:10-15 - Remember to think about X and this could be refactored using the amazing Y function.
+
+
+1. confirmation.php:17 -  spelling error <p class="ddbtnTxt"> Boking detals </p>
 2. example.js:10-15 - Remember to think about X and this could be refactored using the amazing Y function.
 3. example.js:10-15 - Remember to think about X and this could be refactored using the amazing Y function.
 4. example.js:10-15 - Remember to think about X and this could be refactored using the amazing Y function.
