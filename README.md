@@ -14,7 +14,20 @@ STUUGA is more than accommodation; it's a gateway to Berghav's soul-stirring lan
 
 # Instructions
 
-If your project requires some installation or similar, please inform your user 'bout it. For instance, if you want a more decent indentation of your .php files, you could edit [.editorconfig]('/.editorconfig').
+My database consists of two tables, one for the user and one for the booking. Here are the CREATE-statements: 
+CREATE TABLE bookings (
+booking_id INTEGER UNIQUE,
+full_name varchar (100),
+arrival date,
+departure date,
+room_number INTEGER,
+extras VARCHAR,
+total_cost INTEGER);
+
+CREATE TABLE users (
+id INTEGER PRIMARY KEY UNIQUE, 
+username VARCHAR, 
+user_password varchar);
 
 # Code review
 
