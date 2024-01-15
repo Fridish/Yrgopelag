@@ -14,7 +14,8 @@ STUUGA is more than accommodation; it's a gateway to Berghav's soul-stirring lan
 
 # Instructions
 
-My database consists of two tables, one for the user and one for the booking. Here are the CREATE-statements: 
+My database consists of two tables, one for the user and one for the booking. Here are the CREATE-statements:
+
 CREATE TABLE bookings (
 booking_id INTEGER UNIQUE,
 full_name varchar (100),
